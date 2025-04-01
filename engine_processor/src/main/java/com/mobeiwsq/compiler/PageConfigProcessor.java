@@ -2,33 +2,68 @@ package com.mobeiwsq.compiler;
 
 
 import com.google.auto.service.AutoService;
-import com.mobeiwsq.annotation.BindView;
 import com.mobeiwsq.annotation.OnClick;
+import com.mobeiwsq.annotation.Page;
+import com.mobeiwsq.annotation.enums.CoreAnim;
+import com.mobeiwsq.annotation.model.PageInfo;
+import com.mobeiwsq.compiler.util.Consts;
+import com.mobeiwsq.compiler.util.Logger;
 import com.squareup.javapoet.*;
+import org.apache.commons.collections4.CollectionUtils;
+import org.apache.commons.collections4.MapUtils;
+import org.apache.commons.lang3.StringUtils;
 
 import javax.annotation.processing.*;
 import javax.lang.model.SourceVersion;
 import javax.lang.model.element.*;
+import javax.lang.model.type.TypeMirror;
 import javax.lang.model.util.Elements;
+import javax.lang.model.util.Types;
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.LinkedHashSet;
-import java.util.Map;
-import java.util.Set;
+import java.text.SimpleDateFormat;
+import java.util.*;
+
+import static com.mobeiwsq.compiler.util.Consts.KEY_MODULE_NAME;
 
 
 /**
  * 页面配置自动生成器
+ *
  * @author xuexiang
  */
 @AutoService(Processor.class)
 public class PageConfigProcessor extends AbstractProcessor {
 
-    private Filer filer;//文件生成
-    private Messager messager;//日志
-    private Elements elementUtil;//工具类
+    /**
+     * 文件相关的辅助类
+     */
+    private Filer mFiler;
+    private Types mTypes;
+    private Elements mElements;
+
+
     //全类名：生成复制类所需信息
     private Map<String, AnnotationInfo> annotationInfoMap = new HashMap<>();
+
+
+    /**
+     * 日志相关的辅助类
+     */
+    private Logger mLogger;
+
+    /**
+     * Module name, maybe its 'app' or others
+     */
+    private String moduleName = null;
+    /**
+     * 页面配置所在的包名
+     */
+    private static final String PAGE_CONFIG_PACKAGE_NAME = "com.mobeiwsq.page.config";
+
+    private static final String PAGE_CONFIG_CLASS_NAME_SUFFIX = "PageConfig";
+
+    private TypeMirror mFragment = null;
+
 
     private void log(String msg) {
         System.out.println(msg);
@@ -36,14 +71,42 @@ public class PageConfigProcessor extends AbstractProcessor {
 
     /**
      * 初始化操作
+     *
      * @param processingEnv
      */
     @Override
     public synchronized void init(ProcessingEnvironment processingEnv) {
         super.init(processingEnv);
-        filer = processingEnv.getFiler();
-        elementUtil = processingEnv.getElementUtils();
-        messager = processingEnv.getMessager();
+        mFiler = processingEnv.getFiler();
+        mTypes = processingEnv.getTypeUtils();
+        mElements = processingEnv.getElementUtils();
+        mLogger = new Logger(processingEnv.getMessager());
+
+        // Attempt to get user configuration [moduleName]
+        Map<String, String> options = processingEnv.getOptions();
+        if (MapUtils.isNotEmpty(options)) {
+            moduleName = options.get(KEY_MODULE_NAME);
+        }
+
+        if (StringUtils.isNotEmpty(moduleName)) {
+            moduleName = moduleName.replaceAll("[^0-9a-zA-Z_]+", "");
+
+            mLogger.info("The user has configuration the module name, it was [" + moduleName + "]");
+        } else {
+            mLogger.info("These no module name, at 'build.gradle', like :\n" +
+                    "javaCompileOptions {\n" +
+                    "    annotationProcessorOptions {\n" +
+                    "        arguments = [ moduleName : project.getName() ]\n" +
+                    "    }\n" +
+                    "}\n");
+            //默认是app
+            moduleName = "app";
+//            throw new RuntimeException("XPage::Compiler >>> No module name, for more information, look at gradle log.");
+        }
+
+        mFragment = mElements.getTypeElement(Consts.FRAGMENT).asType();
+
+        mLogger.info(">>> PageConfigProcessor init. <<<");
     }
 
     /**
@@ -58,156 +121,159 @@ public class PageConfigProcessor extends AbstractProcessor {
 
     /**
      * 返回支持的注解类型，set集合
+     *
      * @return
      */
     @Override
     public Set<String> getSupportedAnnotationTypes() {
         Set<String> set = new LinkedHashSet<>();
-        set.add(BindView.class.getCanonicalName());
+        set.add(Page.class.getCanonicalName());
         set.add(OnClick.class.getCanonicalName());
         return set;
     }
 
+    private void parsePages(Set<? extends Element> pageElements) throws IOException {
+        if (CollectionUtils.isNotEmpty(pageElements)) {
+            mLogger.info(">>> Found Pages, size is " + pageElements.size() + " <<<");
+
+            ClassName pageConfigClassName = ClassName.get(PAGE_CONFIG_PACKAGE_NAME, upperFirstLetter(moduleName) + PAGE_CONFIG_CLASS_NAME_SUFFIX);
+            TypeSpec.Builder pageConfigBuilder = TypeSpec.classBuilder(pageConfigClassName);
+
+             /*
+               private static PageConfig sInstance;
+             */
+            FieldSpec instanceField = FieldSpec.builder(pageConfigClassName, "sInstance")
+                    .addModifiers(Modifier.PRIVATE)
+                    .addModifiers(Modifier.STATIC)
+                    .build();
+
+              /*
+
+              ``List<PageInfo>```
+             */
+            ParameterizedTypeName inputListTypeOfPage = ParameterizedTypeName.get(
+                    ClassName.get(List.class),
+                    ClassName.get(PageInfo.class)
+            );
+
+            /*
+               private List<PageInfo> mPages = new ArrayList<>();
+             */
+            FieldSpec pagesField = FieldSpec.builder(inputListTypeOfPage, "mPages")
+                    .addModifiers(Modifier.PRIVATE)
+                    .build();
+
+            //构造函数
+            MethodSpec.Builder constructorBuilder = MethodSpec.constructorBuilder()
+                    .addModifiers(Modifier.PRIVATE)
+                    .addStatement("mPages = new $T<>()", ClassName.get(ArrayList.class));
+
+            TypeMirror tm;
+            String name;
+            for (Element element : pageElements) {
+                tm = element.asType();
+                // Fragment
+                // 只有是Fragment的子类才会添加进来，不会添加activity
+                if (mTypes.isSubtype(tm, mFragment)) {
+                    mLogger.info(">>> Found Fragment Page: " + tm.toString() + " <<<");
+
+                    Page page = element.getAnnotation(Page.class);
+                    name = StringUtils.isEmpty(page.name()) ? element.getSimpleName().toString() : page.name();
+
+                    constructorBuilder.addStatement("mPages.add(new $T($S, $S, $S, $T.$L, $L))",
+                            PageInfo.class,
+                            name,
+                            tm.toString(),
+                            PageInfo.getParams(page.params()),
+                            ClassName.get(CoreAnim.class),
+                            page.anim(),
+                            page.extra());
+                }
+            }
+
+            MethodSpec constructorMethod = constructorBuilder.build();
+
+            MethodSpec instanceMethod = MethodSpec.methodBuilder("getInstance")
+                    .addModifiers(Modifier.PUBLIC)
+                    .addModifiers(Modifier.STATIC)
+                    .returns(pageConfigClassName)
+                    .addCode("if (sInstance == null) {\n" +
+                            "    synchronized ($T.class) {\n" +
+                            "        if (sInstance == null) {\n" +
+                            "            sInstance = new $T();\n" +
+                            "        }\n" +
+                            "    }\n" +
+                            "}\n", pageConfigClassName, pageConfigClassName)
+                    .addStatement("return sInstance")
+                    .build();
+
+            MethodSpec getPagesMethod = MethodSpec.methodBuilder("getPages")
+                    .addModifiers(Modifier.PUBLIC)
+                    .returns(inputListTypeOfPage)
+                    .addStatement("return mPages")
+                    .build();
+
+            CodeBlock javaDoc = CodeBlock.builder()
+                    .add("<p>这是PageConfigProcessor自动生成的类，用以自动进行页面的注册。</p>\n")
+//                    .add("<p><a href=\"mailto:xuexiangjys@163.com\">Contact me.</a></p>\n")
+                    .add("\n")
+                    .add("@author mobeiwsq \n")
+                    .add("@date ").add(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date())).add("\n")
+                    .build();
+
+            pageConfigBuilder
+                    .addJavadoc(javaDoc)
+                    .addModifiers(Modifier.PUBLIC)
+                    .addField(instanceField)
+                    .addField(pagesField)
+                    .addMethod(constructorMethod)
+                    .addMethod(instanceMethod)
+                    .addMethod(getPagesMethod);
+            JavaFile javaFile = JavaFile.builder(PAGE_CONFIG_PACKAGE_NAME, pageConfigBuilder.build()).build();
+
+            //生成java文件
+            javaFile.writeTo(mFiler);
+            //控制台输出生成的代码
+            javaFile.writeTo(System.out);
+        }
+    }
+
     /**
      * 主要的注解解析
+     *
      * @param annotations 注解集合
      * @param roundEnv
      * @return
      */
     @Override
     public boolean process(Set<? extends TypeElement> annotations, RoundEnvironment roundEnv) {
-        //获取所有被MBindView注解标记的元素
-        Set<? extends Element> fieldElements = roundEnv.getElementsAnnotatedWith(BindView.class);
-        Set<? extends Element> methodElements = roundEnv.getElementsAnnotatedWith(OnClick.class);
-
-        if (fieldElements.size() < 1 && methodElements.size() < 1) {
-            return true;
-        }
-
-        for (Element element : methodElements) {
-            //获取当前元素父元素，即当前类
-            TypeElement typeElement = (TypeElement) element.getEnclosingElement();
-
-            //获取全类名:com.home.test.MainActivity
-            String className = typeElement.getQualifiedName().toString();
-            String packageName = elementUtil.getPackageOf(typeElement).toString();
-
-            //以类为一个对象，保存所需元素信息
-            AnnotationInfo annotationInfo = annotationInfoMap.get(className);
-            if (annotationInfo == null) {
-                AnnotationInfo temp = new AnnotationInfo(typeElement, packageName);
-                //以方法名作为key
-                temp.onClickElements.put(element.getSimpleName().toString(), element);
-                annotationInfoMap.put(className, temp);
-            } else {
-                annotationInfo.onClickElements.put(element.getSimpleName().toString(), element);
-            }
-        }
-
-        //=====================================BindView 相关==========================
-        for (Element element : fieldElements) {
-            if (element.getKind() == ElementKind.FIELD) {
-                //获取当前元素父元素，即当前类
-                TypeElement typeElement = (TypeElement) element.getEnclosingElement();
-
-                //获取全类名:com.home.test.MainActivity
-                String className = typeElement.getQualifiedName().toString();
-                String packageName = elementUtil.getPackageOf(typeElement).toString();
-
-                //以类为一个对象，保存所需元素信息
-                AnnotationInfo annotationInfo = annotationInfoMap.get(className);
-                BindView annotation = element.getAnnotation(BindView.class);
-                if (annotationInfo == null) {
-                    AnnotationInfo temp = new AnnotationInfo(typeElement, packageName);
-                    temp.bindViewElements.put(annotation.value(), element);
-                    annotationInfoMap.put(className, temp);
-                } else {
-                    annotationInfo.bindViewElements.put(annotation.value(), element);
-                }
-            }
-        }
-
-
-        for (String classNameKey : annotationInfoMap.keySet()) {
-            AnnotationInfo info = annotationInfoMap.get(classNameKey);
-            String packageName = info.getPackageName();
-
-            //要生成.java文件的类名：com.home.test.MainActivity_Binding
-            ClassName classBindName = ClassName.get(packageName, info.getTypeElement().getSimpleName() + AnnotationInfo.TAG_NAME);
-            //生成类要实现的接口:com.home.bind_core.IViewInjector
-            ClassName classInterface = ClassName.get("com.mobeiwsq.engine_project", "IViewInjector");
-            //className:com.home.test.MainActivity
-            ClassName className = ClassName.get(info.getTypeElement());
-            //泛型接口，implements IViewInjector<MainActivity>
-            ParameterizedTypeName parameterizedTypeName = ParameterizedTypeName.get(classInterface, className);
-
-            //生成接口的实现方法
-            MethodSpec.Builder implMethod = MethodSpec.methodBuilder("initView")
-                    .addModifiers(Modifier.PUBLIC)
-                    .addAnnotation(Override.class)
-                    .addParameter(className, "activity")
-                    .addParameter(Object.class, "source");
-
-            for (int id : info.bindViewElements.keySet()) {
-                //VariableElement：表示字段、 enum常量、方法或构造函数参数、局部变量、资源变量或异常参数
-                VariableElement element = (VariableElement) info.bindViewElements.get(id);
-                String fieldName = element.getSimpleName().toString();
-                log("filedName:" + fieldName);
-                //生成真正的初始化控件代码
-                implMethod.beginControlFlow("if (source instanceof android.app.Activity)")
-                        .addStatement("activity.$L = ((android.app.Activity) source).findViewById($L)", fieldName, id)
-                        .nextControlFlow("else")
-                        .addStatement("activity.$L = ((android.view.View)source).findViewById($L)", fieldName, id)
-                        .endControlFlow();
-            }
-
-            //=====================================onClick 相关==========================
-            //构造函数
-            MethodSpec.Builder constructorBuilder = MethodSpec.constructorBuilder()
-                    .addModifiers(Modifier.PUBLIC)
-                    .addParameter(className, "activity");
-
-            for (String methodName:info.onClickElements.keySet()){
-                Element element = info.onClickElements.get(methodName);
-                //ExecutableElement:表示类或接口的方法、构造函数
-                ExecutableElement executableElement = (ExecutableElement) element;
-                OnClick annotation = executableElement.getAnnotation(OnClick.class);
-                int[] ids = annotation.value();
-                for (int idTemp: ids){
-                    //匿名内部类
-                    TypeSpec comparator = TypeSpec.anonymousClassBuilder("")
-                            .addSuperinterface(ClassName.get("android.view","View.OnClickListener"))
-                            .addMethod(MethodSpec.methodBuilder("onClick")
-                                    .addAnnotation(Override.class)
-                                    .addModifiers(Modifier.PUBLIC)
-                                    .addStatement("activity.$L(view)",element.getSimpleName())
-                                    .addParameter(ClassName.get("android.view","View"), "view")
-                                    .build())
-                            .build();
-
-                    constructorBuilder.addStatement("activity.findViewById($L).setOnClickListener($L)",idTemp,comparator);
-                }
-            }
-
-            //创建类
-            TypeSpec typeSpec = TypeSpec.classBuilder(classBindName)
-                    .addModifiers(Modifier.PUBLIC)
-                    .addMethod(constructorBuilder.build())//构造器
-                    .addSuperinterface(parameterizedTypeName) //实现接口
-                    .addMethod(implMethod.build()) //添加类中的方法
-                    .build();
+        if (CollectionUtils.isNotEmpty(annotations)) {
+            Set<? extends Element> pageElements = roundEnv.getElementsAnnotatedWith(Page.class);
             try {
-                //生成 MainActivity_Binding.java文件
-                JavaFile javaFile = JavaFile.builder(packageName, typeSpec)
-                        .build();
-                javaFile.writeTo(filer);//生成java文件
-                javaFile.writeTo(System.out);//控制台输出生成的代码
-            } catch (IOException e) {
-                e.printStackTrace();
+                mLogger.info(">>> Found Pages, start... <<<");
+                parsePages(pageElements);
+
+            } catch (Exception e) {
+                mLogger.error(e);
             }
+            return true;
         }
         return false;
 
 
     }
+
+    /**
+     * 首字母大写
+     *
+     * @param s 待转字符串
+     * @return 首字母大写字符串
+     */
+    public static String upperFirstLetter(final String s) {
+        if (StringUtils.isEmpty(s) || !Character.isLowerCase(s.charAt(0))) {
+            return s;
+        }
+        return (char) (s.charAt(0) - 32) + s.substring(1);
+    }
+
 }

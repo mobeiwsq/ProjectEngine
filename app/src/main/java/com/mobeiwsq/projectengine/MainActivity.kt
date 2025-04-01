@@ -6,9 +6,10 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.mobeiwsq.annotation.OnClick
+import com.mobeiwsq.annotation.Page
 import com.mobeiwsq.engine_project.MButterKnife
 
-
+@Page
 class MainActivity : AppCompatActivity() {
 
     @JvmField
@@ -26,7 +27,6 @@ class MainActivity : AppCompatActivity() {
         tv2?.text = "^_^"
     }
 
-    @OnClick
     fun btnClick(v: View) {
         when (v.id) {
             R.id.btn_1 -> {

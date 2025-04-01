@@ -15,4 +15,8 @@ dependencies {
     annotationProcessor 'com.google.auto.service:auto-service:1.0-rc6'
     //快速生成.java文件的库
     implementation 'com.squareup:javapoet:1.13.0'
+
+    //用来生成java文件的，避免字符串拼接的尴尬
+    implementation 'org.apache.commons:commons-lang3:3.11'
+    implementation 'org.apache.commons:commons-collections4:4.4'
 }
