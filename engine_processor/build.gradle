@@ -1,0 +1,18 @@
+plugins {
+    id 'java'
+}
+
+group = 'com.mobeiwsq'
+version = 'unspecified'
+
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+
+    implementation project(':engine_annotation')
+    //用于自动为 JAVA Processor 生成 META-INF 信息。
+    implementation 'com.google.auto.service:auto-service:1.0-rc6'
+    annotationProcessor 'com.google.auto.service:auto-service:1.0-rc6'
+    //快速生成.java文件的库
+    implementation 'com.squareup:javapoet:1.13.0'
+}

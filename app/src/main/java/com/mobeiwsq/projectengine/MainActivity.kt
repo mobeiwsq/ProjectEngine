@@ -1,22 +1,50 @@
 package com.mobeiwsq.projectengine
 
-import android.view.MotionEvent
-import com.mobeiwsq.enginelibrary.view.base.BaseActivity
-import com.mobeiwsq.projectengine.databinding.ActivityMainBinding
+import android.os.Bundle
+import android.view.View
+import android.widget.TextView
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import com.mobeiwsq.annotation.OnClick
+import com.mobeiwsq.engine_project.MButterKnife
 
 
-class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
+class MainActivity : AppCompatActivity() {
 
-    override fun initView() {
+    @JvmField
+    var tv1: TextView? = null
+
+    @JvmField
+    var tv2: TextView? = null
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+        //绑定
+//        MButterKnife.bind(this)
+        tv1?.text = "绑定成功！"
+        tv2?.text = "^_^"
     }
 
-    override fun initData() {
-    }
+    @OnClick
+    fun btnClick(v: View) {
+        when (v.id) {
+            R.id.btn_1 -> {
+                Toast.makeText(this, "点击按钮11", Toast.LENGTH_SHORT).show()
+            }
 
-    override fun initListener() {
+            R.id.btn_2 -> {
+                Toast.makeText(this, "点击按钮22", Toast.LENGTH_SHORT).show()
+            }
+        }
     }
-
-    override fun onTouchEvent(event: MotionEvent?): Boolean {
-        return super.onTouchEvent(event)
-    }
+//
+//    @OnClick(R.id.btn_3)
+//    fun btnClick2(v: View) {
+//        when (v.id) {
+//            R.id.btn_3 -> {
+//                Toast.makeText(this, "点击按钮33", Toast.LENGTH_SHORT).show()
+//            }
+//        }
+//    }
 }
