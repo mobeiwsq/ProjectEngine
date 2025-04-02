@@ -1,8 +1,11 @@
 plugins {
     id 'java'
+    id 'maven-publish'
 }
 
 
+group = 'com.github.enginelibrary'
+version = '0.0.6'
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
@@ -19,4 +22,14 @@ dependencies {
     implementation 'org.apache.commons:commons-collections4:4.4'
 }
 
-apply from: '../JitPackUpload.gradle'
+//publications {
+//    mavenJava(MavenPublication) {
+//        from components.java // 发布 Java 组件
+//
+//        groupId = 'com.github.enginelibrary'
+//        artifactId = 'engine_processor'
+//        version = '0.0.6'
+//    }
+//}
+
+//apply from: '../JitPackUpload.gradle'

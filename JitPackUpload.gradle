@@ -1,40 +1,26 @@
-apply plugin: 'maven-publish'
-
-// 指定group，com.github.<用户名>，这里我默认填写的是我的github账号，请换成你自己的。
-group = 'com.github.enginelibrary'
-// 指定版本
-version = '0.0.5'
-
-//---------------------------------------------
-
-// 指定编码
-tasks.withType(JavaCompile) {
-    options.encoding = "UTF-8"
-}
-
-if (project.hasProperty("android")) { // Android libraries
-    task sourcesJar(type: Jar) {
-        archiveClassifier.set('sources')
-        from android.sourceSets.main.java.srcDirs
-    }
-} else { // Java libraries
-    task sourcesJar(type: Jar, dependsOn: classes) {
-        archiveClassifier.set('sources')
-        from sourceSets.main.allSource
-    }
-}
-
-artifacts {
-        archives sourcesJar
-}
-
-afterEvaluate {
-    publishing {
-        publications {
-            // Creates a Maven publication called "release".
-            release(MavenPublication) {
-                groupId = 'com.github.mobeiwsq'
-            }
-        }
-    }
-}
+//apply plugin: 'maven-publish'
+//
+//// 指定group，com.github.<用户名>，这里我默认填写的是我的github账号，请换成你自己的。
+//group = 'com.github.enginelibrary'
+//
+//dependencies {
+//
+//    implementation libs.androidx.core.ktx
+//    implementation libs.androidx.appcompat
+//    implementation libs.material
+//    testImplementation libs.junit
+//}
+//
+////afterEvaluate {
+////    publishing {
+////        publications {
+////            // Creates a Maven publication called "release".
+////            release(MavenPublication) {
+////                from components.release
+////                groupId = 'com.github.mobeiwsq'
+////                artifactId = 'ProjectEngine'
+////                version = '0.0.1'
+////            }
+////        }
+////    }
+////}

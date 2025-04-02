@@ -4,5 +4,3 @@ before_install:
 
 jdk:
   - openjdk11
-java:
-  - 17

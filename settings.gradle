@@ -20,6 +20,11 @@ dependencyResolutionManagement {
         google()
         mavenCentral()
     }
+
+    buildscript {
+        dependencies {
+        }
+    }
 }
 
 rootProject.name = "ProjectEngine"
