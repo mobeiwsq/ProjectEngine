@@ -3,7 +3,7 @@ apply plugin: 'maven-publish'
 // 指定group，com.github.<用户名>，这里我默认填写的是我的github账号，请换成你自己的。
 group = 'com.github.enginelibrary'
 // 指定版本
-version = '0.0.4'
+version = '0.0.5'
 
 //---------------------------------------------
 
@@ -25,13 +25,7 @@ if (project.hasProperty("android")) { // Android libraries
 }
 
 artifacts {
-    if (project.getPlugins().hasPlugin('com.android.application') ||
-            project.getPlugins().hasPlugin('com.android.library')) {
-        archives androidSourcesJar
-    } else {
         archives sourcesJar
-    }
-
 }
 
 afterEvaluate {
@@ -40,7 +34,6 @@ afterEvaluate {
             // Creates a Maven publication called "release".
             release(MavenPublication) {
                 groupId = 'com.github.mobeiwsq'
-                version = '0.0.1'
             }
         }
     }
