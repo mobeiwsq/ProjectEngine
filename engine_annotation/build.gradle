@@ -4,7 +4,7 @@ plugins {
 }
 
 group = 'com.github.enginelibrary'
-version = '0.0.6'
+version = '0.0.7'
 
 
 dependencies {
@@ -12,24 +12,16 @@ dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter'
     implementation 'com.google.code.gson:gson:2.8.5'
 }
-//publishing {
-//    publications {
-//        mavenJava(MavenPublication) {
-//            from components.java // 发布 Java 组件
-//
-//            groupId = 'com.github.enginelibrary'
-//            artifactId = 'engine_annotation'
-//            version = '0.0.6'
-//        }
-//    }
-//
-////    repositories {
-////        maven {
-////            // 本地存放目录（可根据需要修改）
-////            def mavenDirPath = file('D:/aar')
-////            url = uri("file://${mavenDirPath.absolutePath}")
-////        }
-////    }
-//}
 
-
+afterEvaluate {
+    publishing {
+        publications {
+            mavenAll(MavenPublication) {
+                from components.java
+                groupId "com.github.mobeiwsq"
+                artifactId = 'engine_annotation'
+                version = '0.0.7'
+            }
+        }
+    }
+}

@@ -44,23 +44,12 @@ android {
 }
 
 afterEvaluate {
-//    publishing {
-//        publications {
-//            // Creates a Maven publication called "release".
-//            release(MavenPublication) {
-//                from components.release
-//                groupId = 'com.github.mobeiwsq'
-//                artifactId = 'ProjectEngine'
-//                version = '0.0.1'
-//            }
-//        }
-//    }
     publishing {
         publications {
             release(MavenPublication) {
                 groupId = 'com.github.mobeiwsq'
-                artifactId = 'ProjectEngine'
-                version = '0.0.6'
+                artifactId = 'engine_project'
+                version = '0.0.7'
 
                 afterEvaluate {
                     from components.release
@@ -69,7 +58,6 @@ afterEvaluate {
         }
 
     }
-
 }
 
 //apply from: '../JitPackUpload.gradle'
