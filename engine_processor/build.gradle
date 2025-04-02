@@ -2,8 +2,6 @@ plugins {
     id 'java'
 }
 
-group = 'com.mobeiwsq'
-version = 'unspecified'
 
 
 dependencies {
