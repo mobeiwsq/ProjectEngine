@@ -10,7 +10,7 @@ import java.lang.annotation.Target;
 /**
  * Fragment页面信息标注
  */
-@Retention(RetentionPolicy.SOURCE)
+@Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.TYPE)
 public @interface Page {
     /**
