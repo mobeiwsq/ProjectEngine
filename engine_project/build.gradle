@@ -1,11 +1,18 @@
 plugins {
     alias(libs.plugins.android.library)
     id 'maven-publish'
+    alias(libs.plugins.kotlin.android)
 }
 
 android {
     namespace 'com.mobeiwsq.engine_project'
     compileSdk 34
+
+    buildFeatures {
+        viewBinding = true
+        buildConfig = true
+        dataBinding = true
+    }
 
     defaultConfig {
         minSdk 28
@@ -30,7 +37,8 @@ dependencies {
 
     implementation libs.androidx.appcompat
     implementation libs.material
-    implementation project(':engine_annotation')
+    api project(':engine_annotation')
+    implementation libs.androidx.core.ktx
     testImplementation libs.junit
     androidTestImplementation libs.androidx.junit
     androidTestImplementation libs.androidx.espresso.core
@@ -40,6 +48,9 @@ dependencies {
 android {
     publishing {
         singleVariant("release")
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
     }
 }
 
