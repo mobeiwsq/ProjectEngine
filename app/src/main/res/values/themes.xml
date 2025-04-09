@@ -4,6 +4,9 @@
     <style name="Base.Theme.MyApplication" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+
+        <!--标题栏返回箭头, 默认R.drawable.ic_navigation_back_white,修改可改变箭头-->
+<!--        <item name="actionbar_navigation_back">@drawable/ic_navigation_back_white</item>-->
     </style>
 
     <style name="Theme.ProjectEngine" parent="Base.Theme.MyApplication"/>
