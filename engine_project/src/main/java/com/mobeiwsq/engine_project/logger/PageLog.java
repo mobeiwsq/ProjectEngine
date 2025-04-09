@@ -23,8 +23,6 @@ import androidx.annotation.NonNull;
 /**
  * Logger日志记录
  *
- * @author xuexiang
- * @since 2018/5/24 下午3:46
  */
 public final class PageLog {
 

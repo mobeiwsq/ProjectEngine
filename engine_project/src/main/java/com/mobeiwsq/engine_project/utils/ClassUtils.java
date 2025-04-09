@@ -36,8 +36,6 @@ import java.util.regex.Pattern;
 /**
  * 扫描class文件的工具类
  *
- * @author xuexiang
- * @since 2018/5/18 上午12:29
  */
 public final class ClassUtils {
 

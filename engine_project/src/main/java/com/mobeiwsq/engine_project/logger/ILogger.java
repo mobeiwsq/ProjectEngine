@@ -19,8 +19,6 @@ package com.mobeiwsq.engine_project.logger;
 /**
  * 简易的日志记录接口
  *
- * @author xuexiang
- * @since 2018/5/24 下午3:46
  */
 public interface ILogger {
 

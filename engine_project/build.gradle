@@ -70,5 +70,3 @@ afterEvaluate {
 
     }
 }
-
-//apply from: '../JitPackUpload.gradle'
