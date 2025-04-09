@@ -46,7 +46,6 @@ abstract class EngineActivity(@LayoutRes contentLayoutId: Int = 0) :
 
         baseLayout.id = R.id.fragment_container
         baseLayout.layoutParams = params
-        baseLayout.background = getDrawable(R.color.red)
         return baseLayout
     }
 }
