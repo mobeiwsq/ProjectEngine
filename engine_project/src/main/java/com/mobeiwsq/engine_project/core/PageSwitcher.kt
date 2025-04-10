@@ -1,19 +1,14 @@
 package com.mobeiwsq.engine_project.core
 
 import android.os.Bundle
-import android.text.TextUtils
-import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.lifecycleScope
-import com.mobeiwsq.annotation.enums.CoreAnim
-import com.mobeiwsq.annotation.model.PageInfo
-import com.mobeiwsq.engine_project.EngineConfig
-import com.mobeiwsq.engine_project.R
 import com.mobeiwsq.engine_project.base.EngineActivity
 import com.mobeiwsq.engine_project.base.EngineFragment
 import com.mobeiwsq.engine_project.logger.PageLog
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 /**
  * 页面跳转操作
@@ -29,20 +24,17 @@ fun EngineActivity.openPage(
     dispatcher: CoroutineDispatcher = Dispatchers.Main
 ) = lifecycleScope.launch(dispatcher) {
 
-    val page = EngineConfig.getPage(clazz)
-    val pageInfo = PageInfo(if (TextUtils.isEmpty(page.name)) clazz.simpleName else page.name, clazz)
-    val pageName = pageInfo.name
-    if (!TextUtils.isEmpty(page.params[0])) {
-        pageInfo.setParams(page.params)
-    }
-    pageInfo.setAnim(page.anim)
-    val animations = convertAnimations(page.anim)
-    PageLog.d("page------$page-------pageInfo---$pageInfo")
+    val pageInfo = createPageInfo(clazz)
+    val animations = convertAnimations(pageInfo.anim)
+    PageLog.d("pageInfo---$pageInfo")
 
     if (newActivity) {
-
+        startNewActivity(this@openPage, this@openPage, pageInfo)
     } else {
-        openPageWithNewFragmentManager(supportFragmentManager, pageName, bundle, animations, addToBackStack)
+        withContext(Dispatchers.Main.immediate) {
+            openPageWithNewFragmentManager(supportFragmentManager, pageInfo.name, bundle, animations, addToBackStack)
+        }
+
     }
 }
 
@@ -60,101 +52,65 @@ fun EngineFragment<*>.openPage(
     bundle: Bundle = Bundle(),
     dispatcher: CoroutineDispatcher = Dispatchers.Main
 ) = lifecycleScope.launch(dispatcher) {
+    val pageInfo = createPageInfo(clazz)
+    val animations = convertAnimations(pageInfo.anim)
+    PageLog.d("pageInfo---$pageInfo")
 
-    val page = EngineConfig.getPage(clazz)
-    val pageInfo = PageInfo(if (TextUtils.isEmpty(page.name)) clazz.simpleName else page.name, clazz)
-    val pageName = pageInfo.name
-    if (!TextUtils.isEmpty(page.params[0])) {
-        pageInfo.setParams(page.params)
+    if (!isAdded || isDetached) {
+        PageLog.w("Fragment state invalid: isAdded=$isAdded, isDetached=$isDetached")
+        return@launch
     }
-    pageInfo.setAnim(page.anim)
-    pageInfo.setAnim(page.anim)
-    val animations = convertAnimations(page.anim)
-    PageLog.d("page------$page-------pageInfo---$pageInfo")
+
+    val fragmentManager = activity?.supportFragmentManager ?: run {
+        PageLog.e("Host activity is null")
+        return@launch
+    }
+
 
     if (newActivity) {
-
+        startNewActivity(requireActivity() as EngineActivity,requireContext(),pageInfo)
     } else {
-        openPageWithNewFragmentManager(requireActivity().supportFragmentManager, pageName, bundle,animations, addToBackStack)
+        withContext(Dispatchers.Main.immediate) {
+            openPageWithNewFragmentManager(
+                fragmentManager,
+                pageInfo.name,
+                bundle,
+                animations,
+                addToBackStack
+            )
+        }
+
     }
 }
 
+
 /**
- * 页面跳转核心函数之一
- * 添加并打开一个Fragment
+ * 弹出栈顶的Fragment。如果Activity中只有一个Fragment时，Activity也退出。
+ */
+fun EngineFragment<*>.popToBack() {
+    popToBack(null, null)
+}
+
+/**
+ * 如果在fragment栈中找到，则跳转到该fragment中去，否则弹出栈顶
  *
- * @param fragmentManager FragmentManager管理类
- * @param pageName        页面名
- * @param bundle          参数
- * @param animations      动画类型
- * @param addToBackStack  是否添加到返回栈
- * @return 打开的Fragment对象
+ * @param pageName 页面名
+ * @param bundle   参数
  */
-fun openPageWithNewFragmentManager(
-    fragmentManager: FragmentManager,
-    pageName: String,
-    bundle: Bundle,
-    animations: IntArray?,
-    addToBackStack: Boolean
-) {
-    val corePage = EngineConfig.mPageMap[pageName]
-    if (corePage == null) {
-        PageLog.d("Page:$pageName is null")
-        return
-    }
-    val fragment = try {
-        Class.forName(corePage.mClazz)
-            .getDeclaredConstructor()
-            .newInstance() as EngineFragment<*>
-    } catch (e: Exception) {
-        PageLog.e("Fragment instantiation failed for ${corePage.mClazz}", e)
-        return
+fun EngineFragment<*>.popToBack(pageName: String?, bundle: Bundle?) {
+//    pageName?.let {
+//        if (isFindPage(pageName)) {
+//            openPage(pageName)
+//            return
+//        }
+//    }
+
+    (requireActivity() as? EngineActivity)?.let { activity ->
+        if (activity.isFinishing) return
+        popOrFinishActivity(activity)
     }
 
-    fragment.apply {
-        arguments = bundle
-        mPageName = pageName
-    }
-
-    val fragmentTransaction = fragmentManager.beginTransaction()
-
-
-    if (animations != null && animations.size >= 4) {
-        fragmentTransaction.setCustomAnimations(animations[0], animations[1], animations[2], animations[3])
-    }
-    fragmentManager.findFragmentById(R.id.fragment_container)?.let {
-        fragmentTransaction.hide(it)
-    }
-
-    fragmentTransaction.add(R.id.fragment_container, fragment, pageName)
-    if (addToBackStack) {
-        fragmentTransaction.addToBackStack(pageName)
-    }
-    fragmentTransaction.commitAllowingStateLoss()
 }
 
-/**
- * 设置动画效果
- */
-fun convertAnimations(coreAnim: CoreAnim): IntArray? {
-    if (coreAnim === CoreAnim.present) {
-        return intArrayOf(
-            R.anim.xpage_push_in_down,
-            R.anim.xpage_push_no_anim,
-            R.anim.xpage_push_no_anim,
-            R.anim.xpage_push_out_down
-        )
-    } else if (coreAnim === CoreAnim.fade) {
-        return intArrayOf(R.anim.xpage_alpha_in, R.anim.xpage_alpha_out, R.anim.xpage_alpha_in, R.anim.xpage_alpha_out)
-    } else if (coreAnim === CoreAnim.slide) {
-        return intArrayOf(
-            R.anim.xpage_slide_in_right,
-            R.anim.xpage_slide_out_left,
-            R.anim.xpage_slide_in_left,
-            R.anim.xpage_slide_out_right
-        )
-    } else if (coreAnim === CoreAnim.zoom) {
-        return intArrayOf(R.anim.xpage_zoom_in, R.anim.xpage_zoom_out, R.anim.xpage_zoom_in, R.anim.xpage_zoom_out)
-    }
-    return null
-}
+
+

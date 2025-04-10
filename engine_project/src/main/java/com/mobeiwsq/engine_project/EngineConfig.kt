@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.content.Context
 import com.mobeiwsq.annotation.Page
 import com.mobeiwsq.annotation.model.PageInfo
+import com.mobeiwsq.engine_project.base.EngineActivity
 import com.mobeiwsq.engine_project.core.SwitcherInfo
 import com.mobeiwsq.engine_project.utils.Utils
 
@@ -21,6 +22,11 @@ object EngineConfig {
      * 全局applicationContext
      */
     lateinit var app: Context
+
+    /**
+     * 默认容器activity
+     */
+    var mContainActivityClassName:String? = EngineActivity::class.java.canonicalName
 
     /**
      * 页面配置所在的包名
@@ -54,16 +60,6 @@ object EngineConfig {
         val auConfig = AutoConfiguration()
         auConfig.config()
         auConfig.registerPages(app)
-    }
-
-    /**
-     * 获取页面信息,检测页面是否添加@Page修饰
-     */
-    fun getPage(clazz: Class<*>): Page {
-        return Utils.checkNotNull(
-            clazz.getAnnotation(Page::class.java),
-            "Page == null，请检测页面是否漏加 @Page 进行修饰！"
-        )
     }
 
 }

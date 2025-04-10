@@ -5,7 +5,7 @@ import com.mobeiwsq.annotation.enums.CoreAnim
 import com.mobeiwsq.engine_project.base.EngineFragment
 import com.mobeiwsq.projectengine.databinding.FragmentTwoBinding
 
-@Page(anim = CoreAnim.zoom)
+@Page(anim = CoreAnim.slide)
 class TwoFragment :EngineFragment<FragmentTwoBinding>(R.layout.fragment_two){
     override fun initView() {
     }

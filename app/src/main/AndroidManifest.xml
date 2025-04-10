@@ -22,6 +22,9 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+
+<!--        默认的自定义容器-->
+        <activity android:name="com.mobeiwsq.engine_project.base.EngineActivity"/>
     </application>
 
 </manifest>
