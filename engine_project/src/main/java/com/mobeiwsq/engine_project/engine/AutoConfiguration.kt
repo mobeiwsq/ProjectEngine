@@ -1,4 +1,4 @@
-package com.mobeiwsq.engine_project
+package com.mobeiwsq.engine_project.engine
 
 import android.content.Context
 import android.text.TextUtils
@@ -6,7 +6,7 @@ import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import com.mobeiwsq.annotation.model.PageInfo
 import com.mobeiwsq.annotation.utils.GsonUtils
-import com.mobeiwsq.engine_project.core.SwitcherInfo
+import com.mobeiwsq.engine_project.engine.core.SwitcherInfo
 import com.mobeiwsq.engine_project.logger.PageLog
 import com.mobeiwsq.engine_project.utils.ClassUtils
 import java.lang.reflect.Method

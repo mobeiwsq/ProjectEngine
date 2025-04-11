@@ -1,4 +1,4 @@
-package com.mobeiwsq.engine_project.core
+package com.mobeiwsq.engine_project.engine.core
 
 /**
  * 页面切换相关工具类
@@ -14,15 +14,14 @@ import android.content.pm.PackageManager
 import android.content.res.Resources
 import android.os.Bundle
 import android.os.Looper
-import android.util.Log
 import androidx.fragment.app.FragmentManager
 import com.mobeiwsq.annotation.Page
 import com.mobeiwsq.annotation.enums.CoreAnim
 import com.mobeiwsq.annotation.model.PageInfo
-import com.mobeiwsq.engine_project.EngineConfig
+import com.mobeiwsq.engine_project.engine.EngineConfig
 import com.mobeiwsq.engine_project.R
-import com.mobeiwsq.engine_project.base.EngineActivity
-import com.mobeiwsq.engine_project.base.EngineFragment
+import com.mobeiwsq.engine_project.engine.base.EngineActivity
+import com.mobeiwsq.engine_project.engine.base.EngineFragment
 import com.mobeiwsq.engine_project.logger.PageLog
 import com.mobeiwsq.engine_project.utils.Utils
 

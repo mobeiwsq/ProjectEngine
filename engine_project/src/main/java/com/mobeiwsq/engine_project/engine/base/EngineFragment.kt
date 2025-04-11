@@ -1,5 +1,6 @@
-package com.mobeiwsq.engine_project.base
+package com.mobeiwsq.engine_project.engine.base
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.*
@@ -7,7 +8,7 @@ import androidx.annotation.LayoutRes
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
-import com.mobeiwsq.engine_project.core.popToBack
+import com.mobeiwsq.engine_project.engine.core.popToBack
 import com.mobeiwsq.engine_project.logger.PageLog
 import com.mobeiwsq.engine_project.utils.KeyBoardUtils.onTouchDown
 import com.mobeiwsq.engine_project.view.title.TitleBar
@@ -85,6 +86,10 @@ abstract class EngineFragment<B : ViewDataBinding>(@LayoutRes contentLayoutId: I
             }
         }
         return false
+    }
+
+    open fun onFragmentResult(resultCode:Int,intent: Intent){
+        PageLog.d("onFragmentResult for EngineFragment resultCode : $resultCode")
     }
 
 }

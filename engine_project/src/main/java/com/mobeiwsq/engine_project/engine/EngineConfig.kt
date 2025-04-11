@@ -1,12 +1,10 @@
-package com.mobeiwsq.engine_project
+package com.mobeiwsq.engine_project.engine
 
 import android.annotation.SuppressLint
 import android.content.Context
-import com.mobeiwsq.annotation.Page
 import com.mobeiwsq.annotation.model.PageInfo
-import com.mobeiwsq.engine_project.base.EngineActivity
-import com.mobeiwsq.engine_project.core.SwitcherInfo
-import com.mobeiwsq.engine_project.utils.Utils
+import com.mobeiwsq.engine_project.engine.base.EngineActivity
+import com.mobeiwsq.engine_project.engine.core.SwitcherInfo
 
 /**
  * Engine初始化类

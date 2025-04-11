@@ -1,8 +1,8 @@
 package com.mobeiwsq.projectengine
 
 import android.os.Bundle
-import com.mobeiwsq.engine_project.base.EngineActivity
-import com.mobeiwsq.engine_project.core.openPage
+import com.mobeiwsq.engine_project.engine.base.EngineActivity
+import com.mobeiwsq.engine_project.engine.core.openPage
 
 
 class MainActivity : EngineActivity() {

@@ -1,4 +1,4 @@
-package com.mobeiwsq.engine_project.base
+package com.mobeiwsq.engine_project.engine.base
 
 import android.content.Intent
 import android.os.Bundle
@@ -13,9 +13,9 @@ import androidx.annotation.LayoutRes
 import androidx.appcompat.app.AppCompatActivity
 import com.mobeiwsq.annotation.model.PageInfo
 import com.mobeiwsq.engine_project.R
-import com.mobeiwsq.engine_project.core.SWITCHER_NEW_INTENT
-import com.mobeiwsq.engine_project.core.openPageWithNewFragmentManager
-import com.mobeiwsq.engine_project.core.safelyFinishActivity
+import com.mobeiwsq.engine_project.engine.core.SWITCHER_NEW_INTENT
+import com.mobeiwsq.engine_project.engine.core.openPageWithNewFragmentManager
+import com.mobeiwsq.engine_project.engine.core.safelyFinishActivity
 import com.mobeiwsq.engine_project.logger.PageLog
 
 /**
@@ -64,7 +64,6 @@ open class EngineActivity(@LayoutRes contentLayoutId: Int = 0) :
     private fun initNewIntent(intent: Intent) {
         try {
             val pageInfo = intent.getParcelableExtra(SWITCHER_NEW_INTENT, PageInfo::class.java)
-            Log.d("swn_o", "initNewIntent: $pageInfo")
             if (pageInfo != null) {
                 openPageWithNewFragmentManager(
                     supportFragmentManager, pageName = pageInfo.name, animations = null, bundle = Bundle(),

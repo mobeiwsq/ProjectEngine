@@ -1,7 +1,7 @@
 package com.mobeiwsq.projectengine
 
 import android.app.Application
-import com.mobeiwsq.engine_project.EngineConfig
+import com.mobeiwsq.engine_project.engine.EngineConfig
 
 class App:Application() {
 

@@ -1,4 +1,4 @@
-package com.mobeiwsq.engine_project.core
+package com.mobeiwsq.engine_project.engine.core
 
 import com.google.gson.annotations.SerializedName
 

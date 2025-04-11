@@ -1,9 +1,9 @@
-package com.mobeiwsq.engine_project.core
+package com.mobeiwsq.engine_project.engine.core
 
 import android.os.Bundle
 import androidx.lifecycle.lifecycleScope
-import com.mobeiwsq.engine_project.base.EngineActivity
-import com.mobeiwsq.engine_project.base.EngineFragment
+import com.mobeiwsq.engine_project.engine.base.EngineActivity
+import com.mobeiwsq.engine_project.engine.base.EngineFragment
 import com.mobeiwsq.engine_project.logger.PageLog
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
