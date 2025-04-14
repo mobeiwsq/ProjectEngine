@@ -47,17 +47,18 @@ fun openPageWithNewFragmentManager(
     bundle: Bundle,
     animations: IntArray?,
     addToBackStack: Boolean
-) {
+) :EngineFragment<*>?{
+    val fragment:EngineFragment<*>
     val corePage = EngineConfig.mPageMap[pageName]
     if (corePage == null) {
         PageLog.d("Page:$pageName is null")
-        return
+        return null
     }
-    val fragment = try {
+    fragment = try {
         getFragment(corePage)
     } catch (e: Exception) {
         PageLog.e("Fragment instantiation failed for ${corePage.mClazz}", e)
-        return
+        return null
     }
 
     fragment.apply {
@@ -78,6 +79,7 @@ fun openPageWithNewFragmentManager(
         fragmentTransaction.addToBackStack(pageName)
     }
     fragmentTransaction.commitAllowingStateLoss()
+    return fragment
 }
 
 /**
