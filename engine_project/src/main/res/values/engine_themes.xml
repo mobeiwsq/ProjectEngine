@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!--    基类themes-->
-    <style name="EngineTheme" parent="Theme.Material3.DayNight.NoActionBar" >
+    <style name="EngineTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar.Bridge" >
         <item name="ClearEditTextStyle">@style/EditText.Clear</item>
         <item name="PasswordEditTextStyle">@style/EditText.Password</item>
 
