@@ -55,16 +55,18 @@ open class EngineActivity(@LayoutRes contentLayoutId: Int = 0) :
         }
     }
 
+    open fun initRootView(layoutResID: Int) {
+        rootView = layoutInflater.inflate(layoutResID, null)
+    }
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         if (layoutResID != 0) {
-            rootView = layoutInflater.inflate(layoutResID, null)
+            initRootView(layoutResID)
         } else {
             rootView = getBaseLayout()
         }
-
-
 
         onBackPressedDispatcher.addCallback(this) {
             if (supportFragmentManager.backStackEntryCount == 1) {
