@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.android.library)
     id 'maven-publish'
     alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.kotlin.kapt)
 }
 
 android {
@@ -60,7 +61,7 @@ afterEvaluate {
             release(MavenPublication) {
                 groupId = 'com.github.mobeiwsq'
                 artifactId = 'engine_project'
-                version = '0.0.7'
+                version = '0.0.3'
 
                 afterEvaluate {
                     from components.release

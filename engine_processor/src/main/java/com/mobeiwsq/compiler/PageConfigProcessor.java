@@ -217,7 +217,6 @@ public class PageConfigProcessor extends AbstractProcessor {
 
             CodeBlock javaDoc = CodeBlock.builder()
                     .add("<p>这是PageConfigProcessor自动生成的类，用以自动进行页面的注册。</p>\n")
-//                    .add("<p><a href=\"mailto:xuexiangjys@163.com\">Contact me.</a></p>\n")
                     .add("\n")
                     .add("@author mobeiwsq \n")
                     .add("@date ").add(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date())).add("\n")
