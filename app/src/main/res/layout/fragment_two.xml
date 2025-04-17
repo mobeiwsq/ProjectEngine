@@ -8,21 +8,18 @@
             android:background="@color/white"
             android:orientation="vertical">
 
-        <TextView
-                android:text="111111111111"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+        <com.mobeiwsq.engine_project.view.widget.edittext.ClearEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:hint="请输入账号"
+                android:textAlignment="viewStart"/>
 
-        <Button
-                android:id="@+id/button"
-                android:text="333333333"
-                android:layout_width="wrap_content" android:layout_height="wrap_content"/>
-
-        <Button
-                android:id="@+id/button1"
-                android:text="444444"
-                android:layout_width="wrap_content" android:layout_height="wrap_content"/>
-
+        <com.mobeiwsq.engine_project.view.widget.edittext.PasswordEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="请输入密码"
+                android:textAlignment="viewStart"/>
 
 
     </androidx.appcompat.widget.LinearLayoutCompat>

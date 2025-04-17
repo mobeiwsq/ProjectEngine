@@ -1,8 +1,9 @@
-package com.mobeiwsq.engine_project.engine
+package com.mobeiwsq.engine_project
 
 import android.annotation.SuppressLint
 import android.content.Context
 import com.mobeiwsq.annotation.model.PageInfo
+import com.mobeiwsq.engine_project.engine.AutoConfiguration
 import com.mobeiwsq.engine_project.engine.base.EngineActivity
 import com.mobeiwsq.engine_project.engine.core.SwitcherInfo
 

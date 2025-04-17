@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--    基类themes-->
+    <style name="EngineTheme" parent="Theme.Material3.DayNight.NoActionBar" >
+        <item name="ClearEditTextStyle">@style/EditText.Clear</item>
+        <item name="PasswordEditTextStyle">@style/EditText.Password</item>
+
+
+        <item name="config_size_edittext_height">@dimen/config_size_edittext_height_phone</item>
+        <item name="config_size_edittext_input_text">@dimen/config_size_edittext_input_text_phone</item>
+        <item name="config_size_edittext_left_padding">@dimen/config_size_edittext_left_padding_phone</item>
+        <item name="config_color_input_text">@color/config_color_edittext_input_text</item>
+        <item name="config_color_hint_text">@color/config_color_edittext_hint_text</item>
+    </style>
+
+</resources>

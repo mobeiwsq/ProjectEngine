@@ -16,11 +16,11 @@ class TwoFragment : EngineFragment<FragmentTwoBinding>(R.layout.fragment_two){
     }
 
     override fun initListeners() {
-        binding.button.setOnClickListener {
-            val intent = Intent()
-            intent.putExtra("aaaaa", "==【返回的数据】==")
-            setFragmentResult(500, intent)
-            popToBack()
-        }
+//        binding.button.setOnClickListener {
+//            val intent = Intent()
+//            intent.putExtra("aaaaa", "==【返回的数据】==")
+//            setFragmentResult(500, intent)
+//            popToBack()
+//        }
     }
 }

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--*********************************************
+  *                 widget控件的colors               *
+  **********************************************-->
+<resources>
+    <!--输入文字的颜色-->
+    <color name="config_color_edittext_input_text">#333333</color>
+    <!--提示文字的颜色-->
+    <color name="config_color_edittext_hint_text">#C5CDD9</color>
+</resources>

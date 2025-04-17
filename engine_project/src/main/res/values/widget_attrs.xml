@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--*********************************************
+  *                 widget控件的attrs               *
+  **********************************************-->
+<resources>
+    <!-- =======   edittext===========================-->
+    <attr name="ClearEditTextStyle" format="reference" />
+    <attr name="PasswordEditTextStyle" format="reference" />
+
+    <!--输入框文字-->
+    <attr name="config_size_edittext_input_text" format="dimension" />
+    <attr name="config_size_edittext_helper_text" format="dimension" />
+    <attr name="config_size_edittext_components_spacing" format="dimension" />
+    <attr name="config_size_edittext_left_padding" format="dimension" />
+    <attr name="config_size_edittext_radius" format="dimension" />
+    <attr name="config_size_edittext_height" format="dimension" />
+    <!--输入文字的颜色-->
+    <attr name="config_color_input_text" format="color" />
+    <!--提示文字的颜色-->
+    <attr name="config_color_hint_text" format="color" />
+
+    <declare-styleable name="ClearEditText">
+        <!--清除按钮的图片资源-->
+        <attr name="cet_clearIcon" format="reference" />
+        <!--清除按钮的图片尺寸-->
+        <attr name="cet_clearIconSize" format="dimension" />
+    </declare-styleable>
+
+    <!-- PasswordEditText -->
+    <declare-styleable name="PasswordEditText">
+        <!--显示密码的图标资源-->
+        <attr name="pet_iconShow" format="reference" />
+        <!--隐藏密码的图标资源-->
+        <attr name="pet_iconHide" format="reference" />
+        <!--是否触摸显示密码-->
+        <attr name="pet_hoverShowsPw" format="boolean" />
+        <!--是否使用系统默认字体-->
+        <attr name="pet_nonMonospaceFont" format="boolean" />
+        <!--图标是否设置透明度, 默认是true-->
+        <attr name="pet_enableIconAlpha" format="boolean" />
+        <!--密码输入框文字的样式是否是“*”，默认是false-->
+        <attr name="pet_isAsteriskStyle" format="boolean" />
+    </declare-styleable>
+</resources>

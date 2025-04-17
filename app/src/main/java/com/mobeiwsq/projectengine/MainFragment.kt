@@ -7,6 +7,7 @@ import android.widget.ArrayAdapter
 import com.mobeiwsq.annotation.Page
 import com.mobeiwsq.annotation.enums.CoreAnim
 import com.mobeiwsq.engine_project.engine.base.EngineFragment
+import com.mobeiwsq.engine_project.engine.core.openPage
 import com.mobeiwsq.engine_project.logger.PageLog
 import com.mobeiwsq.engine_project.utils.KeyClickUtils.back2Click
 import com.mobeiwsq.projectengine.databinding.FragmentMainBinding
@@ -35,8 +36,8 @@ class MainFragment : EngineFragment<FragmentMainBinding>(R.layout.fragment_main)
 
         // 设置 ListView 的点击事件监听器
         binding.listView.setOnItemClickListener { parent, view, position, id ->
-//            openPage(fragmentList[position])
-            openPageForResult(fragmentList[position], 2222)
+            openPage(fragmentList[position])
+//            openPageForResult(fragmentList[position], 2222)
         }
     }
 

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="config_size_edittext_height_phone">36dp</dimen>
+    <dimen name="config_size_edittext_input_text_phone">13sp</dimen>
+    <dimen name="config_size_edittext_left_padding_phone">10dp</dimen>
+</resources>

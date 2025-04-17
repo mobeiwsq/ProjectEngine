@@ -18,7 +18,7 @@ import androidx.fragment.app.FragmentManager
 import com.mobeiwsq.annotation.Page
 import com.mobeiwsq.annotation.enums.CoreAnim
 import com.mobeiwsq.annotation.model.PageInfo
-import com.mobeiwsq.engine_project.engine.EngineConfig
+import com.mobeiwsq.engine_project.EngineConfig
 import com.mobeiwsq.engine_project.R
 import com.mobeiwsq.engine_project.engine.base.EngineActivity
 import com.mobeiwsq.engine_project.engine.base.EngineFragment

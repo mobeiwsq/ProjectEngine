@@ -3,8 +3,12 @@ package com.mobeiwsq.engine_project.utils;
 import android.content.Context;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
+import android.view.View;
 import androidx.annotation.*;
 import androidx.appcompat.content.res.AppCompatResources;
 
@@ -138,5 +142,53 @@ public class Utils {
             return context.getDrawable(resId);
         }
         return AppCompatResources.getDrawable(context, resId);
+    }
+
+    /**
+     * View设备背景
+     *
+     * @param context 上下文
+     * @param view    控件
+     * @param resId   资源id
+     */
+    public static void setBackground(Context context, View view, int resId) {
+        if (view == null) {
+            return;
+        }
+        Bitmap bm = BitmapFactory.decodeResource(context.getResources(), resId);
+        BitmapDrawable bd = new BitmapDrawable(context.getResources(), bm);
+        view.setBackground(bd);
+    }
+
+    /**
+     * 释放图片资源
+     *
+     * @param view 控件
+     */
+    public static void recycleBackground(View view) {
+        Drawable d = view.getBackground();
+        //别忘了把背景设为null，避免onDraw刷新背景时候出现used a recycled bitmap错误
+        view.setBackgroundResource(0);
+        if (d != null && d instanceof BitmapDrawable) {
+            Bitmap bmp = ((BitmapDrawable) d).getBitmap();
+            if (bmp != null && !bmp.isRecycled()) {
+                bmp.recycle();
+            }
+        }
+        if (d != null) {
+            d.setCallback(null);
+        }
+    }
+
+    /**
+     * 检查是否为空指针
+     *
+     * @param object
+     * @param hint
+     */
+    public static void checkNull(Object object, String hint) {
+        if (null == object) {
+            throw new NullPointerException(hint);
+        }
     }
 }
