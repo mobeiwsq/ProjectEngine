@@ -62,6 +62,10 @@ open class EngineActivity(@LayoutRes contentLayoutId: Int = 0) :
         rootView = layoutInflater.inflate(layoutResID, null)
     }
 
+    open fun init(){
+
+    }
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -96,6 +100,7 @@ open class EngineActivity(@LayoutRes contentLayoutId: Int = 0) :
 
         //处理新跳转的activity
         initNewIntent(intent)
+        init()
     }
 
     /**

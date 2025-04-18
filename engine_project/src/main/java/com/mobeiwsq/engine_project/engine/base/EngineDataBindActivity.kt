@@ -11,11 +11,10 @@ abstract class EngineDataBindActivity<B : ViewDataBinding>(@LayoutRes contentLay
     lateinit var binding: B
     override fun initRootView(layoutResID: Int) {
         binding = DataBindingUtil.inflate(layoutInflater, layoutResID, null, false)
-        init()
         rootView = binding.root
     }
 
-    private fun init() {
+    override fun init() {
         try {
             initView()
             initData()
