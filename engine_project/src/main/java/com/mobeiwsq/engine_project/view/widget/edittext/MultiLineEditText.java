@@ -289,7 +289,7 @@ public class MultiLineEditText extends LinearLayout {
      *
      * @param content
      */
-    public void setContentText(String content) {
+    public void setMletContentText(String content) {
         if (content != null && calculateContentLength(content) > mMaxCount) {
             content = content.substring(0, getSubStringIndex(content));
         }
@@ -327,7 +327,7 @@ public class MultiLineEditText extends LinearLayout {
      *
      * @return
      */
-    public String getContentText() {
+    public String getMletContentText() {
         if (mEtInput != null) {
             mContentText = mEtInput.getText() == null ? "" : mEtInput.getText().toString();
         }
@@ -394,7 +394,7 @@ public class MultiLineEditText extends LinearLayout {
      * @return
      */
     public boolean isEmpty() {
-        return TextUtils.isEmpty(getContentText());
+        return TextUtils.isEmpty(getMletContentText());
     }
 
     /**
@@ -403,6 +403,6 @@ public class MultiLineEditText extends LinearLayout {
      * @return
      */
     public boolean isNotEmpty() {
-        return !TextUtils.isEmpty(getContentText());
+        return !TextUtils.isEmpty(getMletContentText());
     }
 }
