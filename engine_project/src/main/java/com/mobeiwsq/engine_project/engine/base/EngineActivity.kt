@@ -71,11 +71,20 @@ open class EngineActivity(@LayoutRes contentLayoutId: Int = 0) :
             rootView = getBaseLayout()
         }
 
-        onBackPressedDispatcher.addCallback(this) {
+//        onBackPressedDispatcher.addCallback(this) {
+//            if (supportFragmentManager.backStackEntryCount == 1) {
+//                safelyFinishActivity(this@EngineActivity, false)
+//            } else {
+//                supportFragmentManager.popBackStack()
+//            }
+//        }
+        onBackPressedDispatcher.addCallback(this, true) { // 初始启用回调
             if (supportFragmentManager.backStackEntryCount == 1) {
                 safelyFinishActivity(this@EngineActivity, false)
+                isEnabled = false // 处理后禁用回调，避免重复触发
             } else {
-                onBackPressedDispatcher.onBackPressed()
+                // 无需调用 onBackPressed()，框架会自动处理 Fragment 回退
+                // 此处逻辑已由系统处理，直接返回即可
             }
         }
 
