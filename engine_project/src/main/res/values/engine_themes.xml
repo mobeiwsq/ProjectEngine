@@ -11,6 +11,8 @@
         <item name="config_size_edittext_left_padding">@dimen/config_size_edittext_left_padding_phone</item>
         <item name="config_color_input_text">@color/config_color_edittext_input_text</item>
         <item name="config_color_hint_text">@color/config_color_edittext_hint_text</item>
+        <item name="config_color_explain_text">@color/config_color_explain_text</item>
+        <item name="config_size_explain_text">@dimen/dimen_12sp</item>
     </style>
 
 </resources>

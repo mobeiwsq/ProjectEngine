@@ -93,6 +93,22 @@ public class Utils {
     }
 
     @ColorInt
+    public static int resolveColor(Context context, @AttrRes int attr) {
+        return resolveColor(context, attr, 0);
+    }
+
+    /**
+     * 根据手机的分辨率从 sp 的单位 转成为 px
+     *
+     * @param spValue SP值
+     * @return 像素值
+     */
+    public static int sp2px(Context context, float spValue) {
+        float fontScale = context.getResources().getDisplayMetrics().scaledDensity;
+        return (int) (spValue * fontScale + 0.5f);
+    }
+
+    @ColorInt
     public static int resolveColor(Context context, @AttrRes int attr, int fallback) {
         TypedArray a = context.getTheme().obtainStyledAttributes(new int[]{attr});
         try {

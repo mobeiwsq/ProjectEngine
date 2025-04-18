@@ -15,6 +15,9 @@ import com.mobeiwsq.annotation.model.PageInfo
 import com.mobeiwsq.engine_project.R
 import com.mobeiwsq.engine_project.engine.core.*
 import com.mobeiwsq.engine_project.logger.PageLog
+import com.mobeiwsq.engine_project.utils.KeyBoardUtils.hideSoftInPut
+import com.mobeiwsq.engine_project.utils.KeyBoardUtils.isShouldHideInput
+import com.mobeiwsq.engine_project.utils.KeyBoardUtils.onTouchDown
 import java.lang.ref.WeakReference
 
 /**
@@ -170,7 +173,15 @@ open class EngineActivity(@LayoutRes contentLayoutId: Int = 0) :
     override fun dispatchTouchEvent(ev: MotionEvent?): Boolean {
         val activeFragment = getActiveFragment()
         var isHandled = false
-        activeFragment?.let {
+        if (activeFragment == null) {
+            if (ev?.action == KeyEvent.ACTION_DOWN) {
+                if (isShouldHideInput(window, ev)) {
+                    currentFocus?.let { view ->
+                        hideSoftInPut(view)
+                    }
+                }
+            }
+        } else {
             isHandled = activeFragment.dispatchTouchEvent(ev)
         }
         return isHandled || super.dispatchTouchEvent(ev)
