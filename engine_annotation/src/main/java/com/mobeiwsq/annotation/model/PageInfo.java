@@ -12,7 +12,6 @@ import java.util.Map;
 /**
  * 页面信息
  *
- * @author xuexiang
  */
 public class PageInfo implements Serializable {
 

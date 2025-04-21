@@ -77,4 +77,25 @@
         <attr name="config_size_explain_text" format="dimension" />
 
     </declare-styleable>
+
+    <!--==============================Picker=======================================-->
+    <declare-styleable name="WheelView">
+        <attr name="wv_gravity" format="enum">
+            <enum name="center" value="17" />
+            <enum name="left" value="3" />
+            <enum name="right" value="5" />
+        </attr>
+        <attr name="wv_textSize" format="dimension" />
+        <attr name="wv_textColorOut" format="color" />
+        <attr name="wv_textColorCenter" format="color" />
+        <attr name="wv_dividerColor" format="color" />
+        <attr name="wv_lineSpacingMultiplier" format="float" />
+    </declare-styleable>
+
+    <attr format="color" name="colorAccent"/>
+
+    <attr name="dialog_background_dim_amount" format="float" />
+
+    <attr name="md_dialog_horizontal_margin" format="dimension"/>
+    <attr name="md_dialog_max_width" format="dimension"/>
 </resources>

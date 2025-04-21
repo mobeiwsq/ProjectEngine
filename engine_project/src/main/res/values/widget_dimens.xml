@@ -3,4 +3,13 @@
     <dimen name="config_size_edittext_height_phone">36dp</dimen>
     <dimen name="config_size_edittext_input_text_phone">13sp</dimen>
     <dimen name="config_size_edittext_left_padding_phone">10dp</dimen>
+
+    <!--WheelView-->
+    <dimen name="default_wheel_view_text_size">20sp</dimen>
+    <dimen name="picker_view_topbar_padding">20dp</dimen>
+    <dimen name="picker_view_topbar_height">44dp</dimen>
+    <dimen name="default_md_dialog_horizontal_margin_phone">28dp</dimen>
+
+
+    <dimen name="default_md_dialog_max_width_phone">305dp</dimen>
 </resources>

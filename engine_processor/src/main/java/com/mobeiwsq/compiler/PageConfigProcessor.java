@@ -31,7 +31,6 @@ import static com.mobeiwsq.compiler.util.Consts.KEY_MODULE_NAME;
 /**
  * 页面配置自动生成器
  *
- * @author xuexiang
  */
 @AutoService(Processor.class)
 public class PageConfigProcessor extends AbstractProcessor {

@@ -2,6 +2,7 @@ package com.mobeiwsq.projectengine
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.KeyEvent
 import android.widget.ArrayAdapter
 import com.mobeiwsq.annotation.Page
@@ -9,11 +10,15 @@ import com.mobeiwsq.annotation.enums.CoreAnim
 import com.mobeiwsq.engine_project.engine.base.EngineFragment
 import com.mobeiwsq.engine_project.engine.core.openPage
 import com.mobeiwsq.engine_project.logger.PageLog
+import com.mobeiwsq.engine_project.utils.DateUtils
 import com.mobeiwsq.engine_project.utils.KeyClickUtils.back2Click
 import com.mobeiwsq.projectengine.databinding.FragmentMainBinding
 
 @Page(name = "測試1", anim = CoreAnim.none)
 class MainFragment : EngineFragment<FragmentMainBinding>(R.layout.fragment_main) {
+    companion object{
+        const val TAG = "MainFragment_eng"
+    }
 
     // 模拟数据
     val dataList = listOf("切换动画", "传递数据", "打开新的activity容器")
@@ -38,6 +43,10 @@ class MainFragment : EngineFragment<FragmentMainBinding>(R.layout.fragment_main)
         binding.listView.setOnItemClickListener { parent, view, position, id ->
             openPage(fragmentList[position])
 //            openPageForResult(fragmentList[position], 2222)
+            Utils.showTimePickerDialog(requireActivity()) { data, view ->
+                val data = DateUtils.date2String(data, DateUtils.yyyyMMdd.get())
+                Log.d(TAG, "initData: $data")
+            }
         }
     }
 

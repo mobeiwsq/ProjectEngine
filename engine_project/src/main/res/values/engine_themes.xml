@@ -13,6 +13,8 @@
         <item name="config_color_hint_text">@color/config_color_edittext_hint_text</item>
         <item name="config_color_explain_text">@color/config_color_explain_text</item>
         <item name="config_size_explain_text">@dimen/dimen_12sp</item>
+        <item name="md_dialog_horizontal_margin">@dimen/default_md_dialog_horizontal_margin_phone</item>
+        <item name="md_dialog_max_width">@dimen/default_md_dialog_max_width_phone</item>
     </style>
 
 </resources>

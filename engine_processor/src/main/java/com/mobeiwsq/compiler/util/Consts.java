@@ -2,7 +2,6 @@ package com.mobeiwsq.compiler.util;
 
 /**
  * 常量
- * @author xuexiang
  */
 public class Consts {
     // Generate
