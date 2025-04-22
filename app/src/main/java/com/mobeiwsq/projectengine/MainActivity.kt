@@ -1,11 +1,8 @@
 package com.mobeiwsq.projectengine
 
 import android.os.Bundle
-import android.util.Log
 import com.mobeiwsq.engine_project.engine.base.EngineActivity
-import com.mobeiwsq.engine_project.engine.base.EngineDataBindActivity
 import com.mobeiwsq.engine_project.engine.core.openPage
-import com.mobeiwsq.projectengine.databinding.ActivityMainBinding
 
 
 //class MainActivity : EngineDataBindActivity<ActivityMainBinding>(R.layout.activity_main) {

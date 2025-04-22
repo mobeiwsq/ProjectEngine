@@ -12,6 +12,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
 
+        <com.mobeiwsq.engine_project.view.widget.alpha.AlphaTextView
+                android:id="@+id/textView"
+                android:text="1111111"
+                android:textSize="@dimen/dimen_20sp"
+                android:textColor="?attr/colorAccent"
+                style="@style/TextStyle.Explain"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
         <ListView
                 android:id="@+id/listView"
                 android:layout_width="match_parent"

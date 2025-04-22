@@ -17,7 +17,6 @@ import com.mobeiwsq.engine_project.engine.core.*
 import com.mobeiwsq.engine_project.logger.PageLog
 import com.mobeiwsq.engine_project.utils.KeyBoardUtils.hideSoftInPut
 import com.mobeiwsq.engine_project.utils.KeyBoardUtils.isShouldHideInput
-import com.mobeiwsq.engine_project.utils.KeyBoardUtils.onTouchDown
 import java.lang.ref.WeakReference
 
 /**

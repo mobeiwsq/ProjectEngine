@@ -3,7 +3,6 @@ package com.mobeiwsq.engine_project.utils
 import android.os.Handler
 import android.os.Looper
 import com.mobeiwsq.engine_project.logger.PageLog
-import java.util.*
 import kotlin.system.exitProcess
 
 /**

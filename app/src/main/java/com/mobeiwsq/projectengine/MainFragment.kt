@@ -2,7 +2,6 @@ package com.mobeiwsq.projectengine
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.KeyEvent
 import android.widget.ArrayAdapter
 import com.mobeiwsq.annotation.Page
@@ -10,7 +9,6 @@ import com.mobeiwsq.annotation.enums.CoreAnim
 import com.mobeiwsq.engine_project.engine.base.EngineFragment
 import com.mobeiwsq.engine_project.engine.core.openPage
 import com.mobeiwsq.engine_project.logger.PageLog
-import com.mobeiwsq.engine_project.utils.DateUtils
 import com.mobeiwsq.engine_project.utils.KeyClickUtils.back2Click
 import com.mobeiwsq.projectengine.databinding.FragmentMainBinding
 
@@ -43,14 +41,45 @@ class MainFragment : EngineFragment<FragmentMainBinding>(R.layout.fragment_main)
         binding.listView.setOnItemClickListener { parent, view, position, id ->
             openPage(fragmentList[position])
 //            openPageForResult(fragmentList[position], 2222)
-            Utils.showTimePickerDialog(requireActivity()) { data, view ->
-                val data = DateUtils.date2String(data, DateUtils.yyyyMMdd.get())
-                Log.d(TAG, "initData: $data")
+//            Utils.showTimePickerDialog(requireActivity()) { data, view ->
+//                val data = DateUtils.date2String(data, DateUtils.yyyyMMdd.get())
+//                Log.d(TAG, "initData: $data")
+//            }
+
+            Utils.showSimpleBottomSheetList(
+                activity,
+                R.string.app_name,
+                DANGER_TYPE_LIST
+            ) { dialog, itemView, itemPosition, tag ->
+                dialog.dismiss()
             }
         }
     }
 
+    val DANGER_TYPE_LIST = arrayListOf(
+        "混凝土工程",
+        "土石方工程",
+        "钢筋工程",
+        "桩基工程",
+        "防水工程",
+        "装饰工程",
+        "安装工程",
+        "砌筑工程",
+        "金属结构",
+        "护坡工程",
+        "路基工程",
+        "路面工程",
+        "道路附属",
+        "质保资料",
+        "工序资料",
+        "管理资料",
+        "进度",
+        "运维",
+        "其他"
+    )
+
     override fun initListeners() {
+        binding.textView.isEnabled = true
     }
 
 

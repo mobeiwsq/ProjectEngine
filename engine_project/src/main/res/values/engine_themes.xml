@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!--    基类themes-->
-    <style name="EngineTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar.Bridge" >
+    <style name="EngineTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar.Bridge">
         <item name="ClearEditTextStyle">@style/EditText.Clear</item>
         <item name="PasswordEditTextStyle">@style/EditText.Password</item>
 
@@ -15,6 +15,73 @@
         <item name="config_size_explain_text">@dimen/dimen_12sp</item>
         <item name="md_dialog_horizontal_margin">@dimen/default_md_dialog_horizontal_margin_phone</item>
         <item name="md_dialog_max_width">@dimen/default_md_dialog_max_width_phone</item>
+
+        <item name="bottom_sheet_grid_item_mini_width">84dp</item>
+        <item name="bottom_sheet_grid_item_paddingTop">0dp</item>
+        <item name="bottom_sheet_grid_item_paddingBottom">8dp</item>
+
+        <item name="bottom_sheet_grid_item_text_appearance">@style/TextStyle.Explain</item>
+        <item name="bottom_sheet_grid_item_icon_size">56dp</item>
+
+        <item name="bottom_sheet_grid_item_icon_marginTop">12dp</item>
+        <item name="bottom_sheet_grid_item_icon_marginBottom">9dp</item>
+
+        <!-- 透明度 -->
+        <item name="switch_alpha_pressed">true</item>
+        <item name="switch_alpha_disabled">true</item>
+
+        <item name="alpha_pressed">@dimen/alpha_pressed</item>
+        <item name="alpha_disabled">@dimen/alpha_disabled</item>
+
+        <item name="dialog_background_dim_amount">0.6</item>
+        <item name="bottom_sheet_list_item_height">56dp</item>
+        <item name="bottom_sheet_title_height">56dp</item>
+        <item name="bottom_sheet_title_style">@style/BottomSheetTitleStyle</item>
+        <item name="bottom_sheet_list_item_padding_horizontal">
+            ?attr/config_content_spacing_horizontal
+        </item>
+        <!--全局样式-->
+        <item name="config_content_spacing_horizontal">
+            @dimen/config_content_spacing_horizontal
+        </item>
+        <item name="bottom_sheet_title_bg">?attr/list_item_bg_with_border_bottom_selector
+        </item>
+        <item name="list_item_bg_with_border_bottom_selector">
+            @drawable/list_item_bg_with_border_bottom_selector
+        </item>
+        <item name="config_color_separator_dark">@color/config_color_separator_dark</item>
+        <item name="config_color_pressed">@color/config_color_background_pressed</item>
+        <item name="config_divider_height">@dimen/list_divider_height</item>
+
+        <item name="bottom_sheet_title_appearance">@style/TextStyle.Title</item>
+        <item name="config_content_spacing_vertical">
+            @dimen/config_content_spacing_vertical
+        </item>
+        <!--文字字号样式-->
+        <item name="config_size_title_text">@dimen/config_size_title_text</item>
+        <item name="config_color_title_text">@color/config_color_title_text</item>
+        <item name="bottom_sheet_list_item_bg">
+            ?attr/list_item_bg_with_border_bottom_selector
+        </item>
+
+        <item name="bottom_sheet_list_item_icon_size">22dp</item>
+        <item name="bottom_sheet_list_item_icon_margin_right">12dp</item>
+        <item name="bottom_sheet_list_item_text_style">@style/BottomSheetListItemTextStyle</item>
+        <item name="bottom_sheet_list_item_mark_margin_left">12dp</item>
+        <item name="icon_check_mark">@drawable/icon_check_mark</item>
+        <item name="bottom_sheet_list_item_text_appearance">@style/TextStyle.Content</item>
+        <item name="config_size_content_text">@dimen/config_size_content_text</item>
+        <item name="config_color_content_text">@color/config_color_content_text</item>
+        <item name="bottom_sheet_list_item_tip_point_margin_left">4dp</item>
+        <item name="TipPointStyle">@style/TipPoint</item>
+
+        <item name="bottom_sheet_grid_padding_vertical">12dp</item>
+        <item name="bottom_sheet_grid_line_padding_horizontal">12dp</item>
+        <item name="bottom_sheet_grid_line_vertical_space">0dp</item>
+        <item name="bottom_sheet_button_background">@drawable/divider_top_bitmap</item>
+        <item name="bottom_sheet_button_height">56dp</item>
+        <item name="bottom_sheet_button_text_color">@color/config_color_gray_2</item>
+        <item name="bottom_sheet_button_text_size">15sp</item>
     </style>
 
 </resources>

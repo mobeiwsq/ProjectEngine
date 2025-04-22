@@ -4,4 +4,16 @@
     <color name="red">#FF0000</color>
     <color name="default_actionbar_color">#299EE3</color>
 
+    <color name="config_color_separator_dark">#E3E6EA</color>
+    <!--条目点击后的背景颜色-->
+    <color name="config_color_background_pressed">@color/config_color_pressed</color>
+    <color name="config_color_pressed">#F2F6F9</color>
+    <!--text color-->
+    <color name="config_color_title_text">@color/config_color_dark_blue_gray</color>
+    <color name="config_color_dark_blue_gray">#223B53</color>
+    <color name="config_color_content_text">@color/config_color_middle_blue_gray</color>
+    <color name="config_color_middle_blue_gray">#6A798E</color>
+    <color name="config_color_red">#F15C58</color>
+    <color name="config_color_gray_2">#49505A</color>
+
 </resources>

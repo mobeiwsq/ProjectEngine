@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--*********************************************
+    *                 TextStyle                     *
+    **********************************************-->
+    <style name="TextStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:gravity">center</item>
+        <item name="fontPath">@string/default_app_font_path</item>
+    </style>
+
+    <!-- 辅助说明 style -->
+    <style name="TextStyle.Explain">
+        <item name="android:textSize">?attr/config_size_explain_text</item>
+        <item name="android:textColor">?attr/config_color_explain_text</item>
+    </style>
+
+    <!-- 标题 style -->
+    <style name="TextStyle.Title">
+        <item name="android:textSize">?attr/config_size_title_text</item>
+        <item name="android:textColor">?attr/config_color_title_text</item>
+    </style>
+
+    <!-- 内容 style -->
+    <style name="TextStyle.Content.wrap">
+        <item name="android:layout_marginBottom">?attr/config_content_spacing_vertical</item>
+    </style>
+    <!-- 内容 style -->
+    <style name="TextStyle.Content">
+        <item name="android:textSize">?attr/config_size_content_text</item>
+        <item name="android:textColor">?attr/config_color_content_text</item>
+    </style>
+
+    <!--BottomSheet-->
+    <style name="BottomSheet" parent="android:Theme.Dialog">
+        <item name="android:backgroundDimAmount">?attr/dialog_background_dim_amount</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@color/config_color_transparent</item>
+        <item name="android:windowAnimationStyle">@null
+        </item><!-- 为了避免在有 NavigationBar 的手机上 Dialog 从 NavigationBar 底部上来。去掉 Dialog 的动画，使用 View 的动画。-->
+        <item name="android:layout_width">match_parent</item>
+    </style>
+
+    <!--BottomSheet-->
+    <style name="BottomSheetTitleStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">?attr/bottom_sheet_title_height</item>
+        <item name="android:background">?attr/bottom_sheet_title_bg</item>
+        <item name="android:ellipsize">middle</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:paddingStart">?attr/bottom_sheet_list_item_padding_horizontal</item>
+        <item name="android:paddingEnd">?attr/bottom_sheet_list_item_padding_horizontal</item>
+        <item name="android:singleLine">true</item>
+        <item name="config_content_spacing_horizontal">@dimen/dimen_16dp</item>
+    </style>
+
+    <style name="BottomSheetListItemTextStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:ellipsize">middle</item>
+        <item name="android:singleLine">true</item>
+    </style>
+
+    <!-- 提示更新小圆点 -->
+    <style name="TipPoint">
+        <item name="android:layout_width">@dimen/tips_point_size</item>
+        <item name="android:layout_height">@dimen/tips_point_size</item>
+        <item name="android:background">@drawable/tips_point</item>
+    </style>
+
+</resources>

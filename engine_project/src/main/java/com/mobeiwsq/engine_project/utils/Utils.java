@@ -207,4 +207,21 @@ public class Utils {
             throw new NullPointerException(hint);
         }
     }
+
+    /**
+     * 得到设备屏幕的宽度
+     */
+    public static int getScreenWidth(Context context) {
+        return context.getResources().getDisplayMetrics().widthPixels;
+    }
+
+    /**
+     * 得到设备屏幕的高度
+     */
+    public static int getScreenHeight(Context context) {
+        return context.getResources().getDisplayMetrics().heightPixels;
+    }
+    public static boolean isNullOrEmpty(@Nullable CharSequence string) {
+        return string == null || string.length() == 0;
+    }
 }

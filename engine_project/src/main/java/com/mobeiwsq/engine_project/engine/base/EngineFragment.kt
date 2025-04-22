@@ -10,7 +10,6 @@ import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
 import com.mobeiwsq.engine_project.engine.core.SwitcherListener
-import com.mobeiwsq.engine_project.engine.core.convertAnimations
 import com.mobeiwsq.engine_project.engine.core.createPageInfo
 import com.mobeiwsq.engine_project.engine.core.popToBack
 import com.mobeiwsq.engine_project.logger.PageLog

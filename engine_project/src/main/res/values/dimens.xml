@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="list_divider_height">0.5dp</dimen>
+    <dimen name="config_content_spacing_vertical">7.5dp</dimen> <!-- margin 和 padding 等使用的内容通用垂直间距 -->
+    <dimen name="config_content_spacing_horizontal">12dp
+    </dimen> <!-- margin 和 padding 等使用的内容通用水平间距 -->
+    <!--标题文字大小-->
+    <dimen name="config_size_title_text">18sp</dimen>
+    <!--正文内容文字大小-->
+    <dimen name="config_size_content_text">15sp</dimen>
+    <!-- 提示标点 -->
+    <dimen name="tips_point_size">8dp</dimen>
+    <dimen name="alpha_pressed">0.5</dimen>
+    <dimen name="alpha_disabled">0.5</dimen>
+
+</resources>

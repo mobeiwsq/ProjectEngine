@@ -3,7 +3,6 @@ package com.mobeiwsq.engine_project.utils
 import android.content.Context
 import android.content.res.TypedArray
 import android.graphics.drawable.Drawable
-import android.os.Build
 import androidx.annotation.DrawableRes
 import androidx.annotation.StyleableRes
 import androidx.appcompat.content.res.AppCompatResources
