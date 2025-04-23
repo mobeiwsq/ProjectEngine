@@ -7,14 +7,14 @@ import android.widget.ArrayAdapter
 import com.mobeiwsq.annotation.Page
 import com.mobeiwsq.annotation.enums.CoreAnim
 import com.mobeiwsq.engine_project.engine.base.EngineFragment
-import com.mobeiwsq.engine_project.engine.core.openPage
 import com.mobeiwsq.engine_project.logger.PageLog
+import com.mobeiwsq.engine_project.showSimpleTipDialog
 import com.mobeiwsq.engine_project.utils.KeyClickUtils.back2Click
 import com.mobeiwsq.projectengine.databinding.FragmentMainBinding
 
 @Page(name = "測試1", anim = CoreAnim.none)
 class MainFragment : EngineFragment<FragmentMainBinding>(R.layout.fragment_main) {
-    companion object{
+    companion object {
         const val TAG = "MainFragment_eng"
     }
 
@@ -39,19 +39,24 @@ class MainFragment : EngineFragment<FragmentMainBinding>(R.layout.fragment_main)
 
         // 设置 ListView 的点击事件监听器
         binding.listView.setOnItemClickListener { parent, view, position, id ->
-            openPage(fragmentList[position])
-//            openPageForResult(fragmentList[position], 2222)
-//            Utils.showTimePickerDialog(requireActivity()) { data, view ->
-//                val data = DateUtils.date2String(data, DateUtils.yyyyMMdd.get())
-//                Log.d(TAG, "initData: $data")
+//            openPage(fragmentList[position])
+////            openPageForResult(fragmentList[position], 2222)
+////            Utils.showTimePickerDialog(requireActivity()) { data, view ->
+////                val data = DateUtils.date2String(data, DateUtils.yyyyMMdd.get())
+////                Log.d(TAG, "initData: $data")
+////            }
+//
+//            Utils.showSimpleBottomSheetList(
+//                activity,
+//                R.string.app_name,
+//                DANGER_TYPE_LIST
+//            ) { dialog, itemView, itemPosition, tag ->
+//                dialog.dismiss()
 //            }
 
-            Utils.showSimpleBottomSheetList(
-                activity,
-                R.string.app_name,
-                DANGER_TYPE_LIST
-            ) { dialog, itemView, itemPosition, tag ->
-                dialog.dismiss()
+            showSimpleTipDialog(
+                requireContext(), R.string.app_name, "是否同意申请", "确认", "取消"
+            ) { dialog, which ->
             }
         }
     }
@@ -79,7 +84,7 @@ class MainFragment : EngineFragment<FragmentMainBinding>(R.layout.fragment_main)
     )
 
     override fun initListeners() {
-        binding.textView.isEnabled = true
+        binding.textView.isClickable = true
     }
 
 

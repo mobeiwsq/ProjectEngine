@@ -13,7 +13,7 @@ import com.mobeiwsq.engine_project.engine.core.SwitcherListener
 import com.mobeiwsq.engine_project.engine.core.createPageInfo
 import com.mobeiwsq.engine_project.engine.core.popToBack
 import com.mobeiwsq.engine_project.logger.PageLog
-import com.mobeiwsq.engine_project.utils.KeyBoardUtils.onTouchDown
+import com.mobeiwsq.engine_project.utils.KeyboardUtils
 import com.mobeiwsq.engine_project.view.title.TitleBar
 import com.mobeiwsq.engine_project.view.title.TitleBarUtils
 import java.lang.ref.WeakReference
@@ -86,7 +86,7 @@ abstract class EngineFragment<B : ViewDataBinding>(@LayoutRes contentLayoutId: I
     open fun dispatchTouchEvent(event: MotionEvent?): Boolean {
         event?.let {
             if (it.action == KeyEvent.ACTION_DOWN) {
-                onTouchDown(event, activity)
+                KeyboardUtils.onTouchDown(event, activity)
             }
         }
         return false

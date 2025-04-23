@@ -1,63 +1,158 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <attr name="bottom_sheet_grid_item_mini_width" format="dimension" />
-    <attr name="bottom_sheet_grid_item_paddingTop" format="dimension" />
-    <attr name="bottom_sheet_grid_item_paddingBottom" format="dimension" />
-    <attr name="bottom_sheet_grid_item_text_appearance" format="reference" />
-    <attr name="bottom_sheet_grid_item_icon_size" format="dimension" />
-    <attr name="bottom_sheet_grid_item_icon_marginTop" format="dimension" />
-    <attr name="bottom_sheet_grid_item_icon_marginBottom" format="dimension" />
+    <attr name="bottom_sheet_grid_item_mini_width" format="dimension"/>
+    <attr name="bottom_sheet_grid_item_paddingTop" format="dimension"/>
+    <attr name="bottom_sheet_grid_item_paddingBottom" format="dimension"/>
+    <attr name="bottom_sheet_grid_item_text_appearance" format="reference"/>
+    <attr name="bottom_sheet_grid_item_icon_size" format="dimension"/>
+    <attr name="bottom_sheet_grid_item_icon_marginTop" format="dimension"/>
+    <attr name="bottom_sheet_grid_item_icon_marginBottom" format="dimension"/>
 
-    <attr name="switch_alpha_pressed" format="boolean" />
-    <attr name="switch_alpha_disabled" format="boolean" />
-    <attr name="alpha_pressed" format="float" />
-    <attr name="alpha_disabled" format="float" />
-    <attr name="bottom_sheet_list_item_height" format="dimension" />
+    <attr name="switch_alpha_pressed" format="boolean"/>
+    <attr name="switch_alpha_disabled" format="boolean"/>
+    <attr name="alpha_pressed" format="float"/>
+    <attr name="alpha_disabled" format="float"/>
+    <attr name="bottom_sheet_list_item_height" format="dimension"/>
 
-    <attr name="bottom_sheet_title_height" format="dimension" />
-    <attr name="bottom_sheet_title_style" format="reference" />
-    <attr name="bottom_sheet_list_item_padding_horizontal" format="dimension" />
-    <attr name="bottom_sheet_title_bg" format="reference" />
-    <attr name="config_content_spacing_horizontal" format="dimension" /> <!-- margin 和 padding 等使用的内容通用水平间距 -->
-    <attr name="config_content_spacing_vertical" format="dimension" /> <!-- margin 和 padding 等使用的内容通用垂直间距 -->
-    <attr name="list_item_bg_with_border_bottom_selector" format="reference" />
+    <attr name="bottom_sheet_title_height" format="dimension"/>
+    <attr name="bottom_sheet_title_style" format="reference"/>
+    <attr name="bottom_sheet_list_item_padding_horizontal" format="dimension"/>
+    <attr name="bottom_sheet_title_bg" format="reference"/>
+    <attr name="config_content_spacing_horizontal" format="dimension"/> <!-- margin 和 padding 等使用的内容通用水平间距 -->
+    <attr name="config_content_spacing_vertical" format="dimension"/> <!-- margin 和 padding 等使用的内容通用垂直间距 -->
+    <attr name="list_item_bg_with_border_bottom_selector" format="reference"/>
     <!-- 大的分割块使用深色的分割线[像ListView、GridView之类]-->
-    <attr name="config_color_separator_dark" format="color" />
+    <attr name="config_color_separator_dark" format="color"/>
     <!--应用点击后的颜色-->
-    <attr name="config_color_pressed" format="color" />
+    <attr name="config_color_pressed" format="color"/>
 
-    <attr name="config_divider_height" format="dimension" />
-    <attr name="bottom_sheet_title_appearance" format="reference" />
+    <attr name="config_divider_height" format="dimension"/>
+    <attr name="bottom_sheet_title_appearance" format="reference"/>
 
     <!--标题文字大小-->
-    <attr name="config_size_title_text" format="dimension" />
-    <attr name="config_color_title_text" format="color" />
-    <attr name="bottom_sheet_list_item_bg" format="reference" />
+    <attr name="config_size_title_text" format="dimension"/>
+    <attr name="config_color_title_text" format="color"/>
+    <attr name="bottom_sheet_list_item_bg" format="reference"/>
 
-    <attr name="bottom_sheet_list_item_icon_size" format="dimension" />
-    <attr name="bottom_sheet_list_item_icon_margin_right" format="dimension" />
-    <attr name="bottom_sheet_list_item_text_style" format="reference" />
-    <attr name="bottom_sheet_list_item_mark_margin_left" format="dimension" />
+    <attr name="bottom_sheet_list_item_icon_size" format="dimension"/>
+    <attr name="bottom_sheet_list_item_icon_margin_right" format="dimension"/>
+    <attr name="bottom_sheet_list_item_text_style" format="reference"/>
+    <attr name="bottom_sheet_list_item_mark_margin_left" format="dimension"/>
 
-    <attr name="icon_check_mark" format="reference" />
-    <attr name="bottom_sheet_list_item_text_appearance" format="reference" />
+    <attr name="icon_check_mark" format="reference"/>
+    <attr name="bottom_sheet_list_item_text_appearance" format="reference"/>
 
     <!--正文内容文字大小-->
-    <attr name="config_size_content_text" format="dimension" />
+    <attr name="config_size_content_text" format="dimension"/>
 
-    <attr name="config_color_content_text" format="color" />
-    <attr name="bottom_sheet_list_item_tip_point_margin_left" format="dimension" />
-    <attr name="TipPointStyle" format="reference" />
+    <attr name="config_color_content_text" format="color"/>
+    <attr name="bottom_sheet_list_item_tip_point_margin_left" format="dimension"/>
+    <attr name="TipPointStyle" format="reference"/>
 
-    <attr name="bottom_sheet_grid_padding_vertical" format="dimension" />
+    <attr name="bottom_sheet_grid_padding_vertical" format="dimension"/>
 
-    <attr name="bottom_sheet_grid_line_padding_horizontal" format="dimension" />
+    <attr name="bottom_sheet_grid_line_padding_horizontal" format="dimension"/>
 
-    <attr name="bottom_sheet_grid_line_vertical_space" format="dimension" />
+    <attr name="bottom_sheet_grid_line_vertical_space" format="dimension"/>
 
-    <attr name="bottom_sheet_button_background" format="reference" />
-    <attr name="bottom_sheet_button_height" format="dimension" />
-    <attr name="bottom_sheet_button_text_color" format="reference" />
-    <attr name="bottom_sheet_button_text_size" format="dimension" />
+    <attr name="bottom_sheet_button_background" format="reference"/>
+    <attr name="bottom_sheet_button_height" format="dimension"/>
+    <attr name="bottom_sheet_button_text_color" format="reference"/>
+    <attr name="bottom_sheet_button_text_size" format="dimension"/>
+    <attr format="color" name="colorControlNormal"/>
+    <!--出错文字的颜色-->
+    <attr name="config_color_error_text" format="color"/>
+
+    <attr name="md_title_gravity" format="enum">
+        <enum name="start" value="0"/>
+        <enum name="center" value="1"/>
+        <enum name="end" value="2"/>
+    </attr>
+
+    <attr name="md_content_gravity" format="enum">
+        <enum name="start" value="0"/>
+        <enum name="center" value="1"/>
+        <enum name="end" value="2"/>
+    </attr>
+
+    <attr name="md_btnstacked_gravity" format="enum">
+        <enum name="start" value="0"/>
+        <enum name="center" value="1"/>
+        <enum name="end" value="2"/>
+    </attr>
+
+    <attr name="md_items_gravity" format="enum">
+        <enum name="start" value="0"/>
+        <enum name="center" value="1"/>
+        <enum name="end" value="2"/>
+    </attr>
+
+    <attr name="md_buttons_gravity" format="enum">
+        <enum name="start" value="0"/>
+        <enum name="center" value="1"/>
+        <enum name="end" value="2"/>
+    </attr>
+
+    <attr name="md_medium_font" format="string"/>
+    <attr name="md_regular_font" format="string"/>
+    <attr name="md_link_color" format="color"/>
+    <attr name="md_dialog_frame_margin" format="dimension"/>
+    <attr name="md_listitem_textsize" format="dimension"/>
+
+    <declare-styleable name="MDRootLayout">
+        <attr name="md_reduce_padding_no_title_no_buttons" format="boolean"/>
+    </declare-styleable>
+
+    <attr name="md_button_height" format="dimension"/>
+    <attr name="md_divider_color" format="color"/>
+    <attr name="md_button_textsize" format="dimension"/>
+    <attr name="md_icon_margin" format="dimension"/>
+    <attr name="md_title_textsize" format="dimension"/>
+    <attr name="md_list_selector" format="reference"/>
+    <attr name="md_btn_stacked_selector" format="reference"/>
+    <attr name="md_btn_neutral_selector" format="reference"/>
+    <attr name="md_btn_negative_selector" format="reference"/>
+    <attr name="md_btn_positive_selector" format="reference"/>
+    <attr name="md_btn_ripple_color" format="color"/>
+    <attr format="color" name="colorControlHighlight"/>
+    <attr name="md_divider" format="color"/>
+
+    <attr name="md_button_padding_horizontal" format="dimension"/>
+    <attr name="md_dark_theme" format="boolean"/>
+    <attr name="md_content_textsize" format="dimension"/>
+    <attr name="md_positive_color" format="color"/>
+    <attr format="color" name="colorControlActivated"/>
+    <attr name="md_background_color" format="color"/>
+    <attr format="color" name="colorBackgroundFloating"/>
+    <attr name="md_explain_textsize" format="dimension"/>
+    <attr name="md_explain_color" format="color"/>
+    <attr name="md_item_color" format="color"/>
+
+    <attr name="md_title_color" format="color"/>
+    <attr name="md_content_color" format="color"/>
+    <attr name="md_neutral_color" format="color"/>
+    <attr name="md_negative_color" format="color"/>
+    <attr name="md_widget_color" format="color"/>
+
+    <attr name="md_icon_max_size" format="dimension"/>
+    <attr name="md_icon_limit_icon_to_default_size" format="boolean"/>
+
+
+    <declare-styleable name="KeyboardScrollView">
+        <!--键盘弹出后,是否自动滚动，默认false-->
+        <attr name="ksv_auto_scroll" format="boolean"/>
+        <!--键盘弹出后，滚动的高度-->
+        <attr name="ksv_scroll_height" format="dimension"/>
+        <!--键盘弹出后，滚动的延迟-->
+        <attr name="ksv_scroll_delay" format="integer"/>
+        <!--滚动是否隐藏键盘, 默认true-->
+        <attr name="ksv_scroll_hide" format="boolean"/>
+    </declare-styleable>
+
+    <attr name="md_dialog_vertical_margin" format="dimension"/>
+
+    <attr name="textAllCaps" format="boolean"/>
+    <attr name="md_icon" format="reference"/>
+
 
 </resources>

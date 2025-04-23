@@ -11,9 +11,6 @@ import com.mobeiwsq.engine_project.view.widget.alpha.AlphaLinearLayout;
 
 /**
  * BottomSheet 的ItemView
- *
- * @author xuexiang
- * @since 2018/11/30 下午1:58
  */
 public class BottomSheetItemView extends AlphaLinearLayout {
 

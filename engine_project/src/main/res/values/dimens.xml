@@ -2,8 +2,7 @@
 <resources>
     <dimen name="list_divider_height">0.5dp</dimen>
     <dimen name="config_content_spacing_vertical">7.5dp</dimen> <!-- margin 和 padding 等使用的内容通用垂直间距 -->
-    <dimen name="config_content_spacing_horizontal">12dp
-    </dimen> <!-- margin 和 padding 等使用的内容通用水平间距 -->
+    <dimen name="config_content_spacing_horizontal">12dp</dimen> <!-- margin 和 padding 等使用的内容通用水平间距 -->
     <!--标题文字大小-->
     <dimen name="config_size_title_text">18sp</dimen>
     <!--正文内容文字大小-->
@@ -12,5 +11,43 @@
     <dimen name="tips_point_size">8dp</dimen>
     <dimen name="alpha_pressed">0.5</dimen>
     <dimen name="alpha_disabled">0.5</dimen>
+    <dimen name="md_listitem_margin_left">24dp</dimen>
+    <dimen name="md_listitem_height">48dp</dimen>
+    <dimen name="md_listitem_vertical_margin">12dp</dimen>
+    <dimen name="default_md_dialog_frame_margin">25dp</dimen>
+    <dimen name="default_md_listitem_textsize">15sp</dimen>
+    <dimen name="md_listitem_control_margin">6dp</dimen>
+    <dimen name="md_listitem_vertical_margin_choice">8dp</dimen>
+
+    <dimen name="md_notitle_vertical_padding">16dp</dimen>
+    <dimen name="md_button_padding_frame_side">12dp</dimen>
+    <dimen name="md_button_frame_vertical_padding">8dp</dimen>
+    <dimen name="default_md_button_height_phone">48dp</dimen>
+    <dimen name="md_divider_height">1dp</dimen>
+    <dimen name="md_button_textpadding_horizontal">1dp</dimen>
+    <dimen name="default_md_button_textsize_phone">15sp</dimen>
+    <dimen name="md_title_frame_margin_bottom">12dp</dimen>
+    <dimen name="md_title_frame_margin_bottom_less">6dp</dimen>
+    <dimen name="default_md_icon_margin">6dp</dimen>
+    <dimen name="default_md_title_textsize">19sp</dimen>
+    <dimen name="md_neutral_button_margin">12dp</dimen>
+
+
+    <dimen name="md_button_inset_horizontal">4dp</dimen>
+    <dimen name="md_button_padding_vertical">4dp</dimen>
+    <dimen name="md_action_corner_radius">2dp</dimen>
+    <dimen name="md_button_inset_vertical">6dp</dimen>
+    <dimen name="default_md_button_padding_horizontal">8dp</dimen>
+
+    <dimen name="md_button_min_width">72dp</dimen>
+    <dimen name="md_content_padding_top">8dp</dimen>
+    <dimen name="md_content_padding_bottom">8dp</dimen>
+    <dimen name="default_md_content_textsize">15sp</dimen>
+
+    <dimen name="md_bg_corner_radius">7dp</dimen>
+    <dimen name="default_md_explain_textsize">13sp</dimen>
+    <dimen name="md_notitle_vertical_padding_more">20dp</dimen>
+    <dimen name="default_md_icon_max_size">28dp</dimen>
+    <dimen name="default_md_dialog_vertical_margin">52dp</dimen>
 
 </resources>

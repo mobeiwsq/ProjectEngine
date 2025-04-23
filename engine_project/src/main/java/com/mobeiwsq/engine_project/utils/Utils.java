@@ -12,7 +12,13 @@ import android.view.View;
 import androidx.annotation.*;
 import androidx.appcompat.content.res.AppCompatResources;
 
+import java.io.Closeable;
+import java.io.IOException;
+
 public class Utils {
+
+    private static final String STATUS_BAR_HEIGHT_RES_NAME = "status_bar_height";
+
     public static <T> T checkNotNull(T t, String message) {
         if (t == null) {
             throw new NullPointerException(message);
@@ -223,5 +229,57 @@ public class Utils {
     }
     public static boolean isNullOrEmpty(@Nullable CharSequence string) {
         return string == null || string.length() == 0;
+    }
+
+    /**
+     * 安静关闭 IO
+     *
+     * @param closeables closeables
+     */
+    public static void closeIOQuietly(final Closeable... closeables) {
+        if (closeables == null) {
+            return;
+        }
+        for (Closeable closeable : closeables) {
+            if (closeable != null) {
+                try {
+                    closeable.close();
+                } catch (IOException ignored) {
+                }
+            }
+        }
+    }
+
+    /**
+     * 计算状态栏高度 getStatusBarHeight
+     *
+     * @param context 上下文
+     * @return 状态栏高度
+     */
+    public static int getStatusBarHeight(Context context) {
+        if (context == null) {
+            return getStatusBarHeight();
+        }
+        return getInternalDimensionSize(context.getResources(),
+                STATUS_BAR_HEIGHT_RES_NAME);
+    }
+
+    /**
+     * 计算状态栏高度 getStatusBarHeight
+     *
+     * @return 状态栏高度
+     */
+    public static int getStatusBarHeight() {
+        return getInternalDimensionSize(Resources.getSystem(),
+                STATUS_BAR_HEIGHT_RES_NAME);
+    }
+
+    private static int getInternalDimensionSize(Resources res, String key) {
+        int result = 0;
+        int resourceId = res.getIdentifier(key, "dimen", "android");
+        if (resourceId > 0) {
+            result = res.getDimensionPixelSize(resourceId);
+        }
+        return result;
     }
 }

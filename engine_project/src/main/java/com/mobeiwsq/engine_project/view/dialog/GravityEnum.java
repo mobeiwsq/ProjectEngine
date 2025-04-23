@@ -9,7 +9,6 @@ import android.view.View;
 
 /**
  * 对齐方式
- *
  */
 public enum GravityEnum {
     /**

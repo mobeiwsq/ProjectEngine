@@ -3,6 +3,8 @@ package com.mobeiwsq.engine_project.utils
 import android.content.Context
 import android.content.res.TypedArray
 import android.graphics.drawable.Drawable
+import android.os.Build
+import androidx.annotation.DimenRes
 import androidx.annotation.DrawableRes
 import androidx.annotation.StyleableRes
 import androidx.appcompat.content.res.AppCompatResources
@@ -41,5 +43,29 @@ object ResUtils {
      */
     fun getVectorDrawable(context: Context, @DrawableRes resId: Int): Drawable? {
             return context.getDrawable(resId)
+    }
+
+    /**
+     * 获取资源图片【和主题有关】
+     *
+     * @param resId 图片资源id
+     * @return 资源图片
+     */
+    fun getDrawable(context: Context, @DrawableRes resId: Int): Drawable? {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            return context.getDrawable(resId)
+        }
+        return AppCompatResources.getDrawable(context, resId)
+    }
+
+    /**
+     * 获取dimes值，返回的是【4舍5入取整】的值
+     *
+     * @param context 上下文
+     * @param resId   资源id
+     * @return dimes值【4舍5入取整】
+     */
+    fun getDimensionPixelSize(context: Context, @DimenRes resId: Int): Int {
+        return context.resources.getDimensionPixelSize(resId)
     }
 }

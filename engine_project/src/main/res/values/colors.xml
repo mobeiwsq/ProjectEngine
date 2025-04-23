@@ -15,5 +15,12 @@
     <color name="config_color_middle_blue_gray">#6A798E</color>
     <color name="config_color_red">#F15C58</color>
     <color name="config_color_gray_2">#49505A</color>
+    <color name="config_color_control_normal">#BEC2C7</color>
+    <color name="md_material_blue_600">#2196F3</color>
+
+    <color name="md_divider_black">#10000000</color>
+    <color name="md_divider_white">#10FFFFFF</color>
+    <color name="md_btn_selected_dark">#40CBCBCB</color>
+    <color name="md_btn_selected">@color/config_color_background_pressed</color>
 
 </resources>

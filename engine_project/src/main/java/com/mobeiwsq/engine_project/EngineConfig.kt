@@ -2,10 +2,13 @@ package com.mobeiwsq.engine_project
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.graphics.Typeface
+import android.text.TextUtils
 import com.mobeiwsq.annotation.model.PageInfo
 import com.mobeiwsq.engine_project.engine.AutoConfiguration
 import com.mobeiwsq.engine_project.engine.base.EngineActivity
 import com.mobeiwsq.engine_project.engine.core.SwitcherInfo
+import io.github.inflationx.calligraphy3.TypefaceUtils
 
 /**
  * Engine初始化类
@@ -17,6 +20,8 @@ import com.mobeiwsq.engine_project.engine.core.SwitcherInfo
 @SuppressLint("StaticFieldLeak")
 object EngineConfig {
 
+    private var sDefaultFontAssetPath = ""
+
     /**
      * 全局applicationContext
      */
@@ -25,7 +30,7 @@ object EngineConfig {
     /**
      * 默认容器activity
      */
-    var mContainActivityClassName:String? = EngineActivity::class.java.canonicalName
+    var mContainActivityClassName: String? = EngineActivity::class.java.canonicalName
 
     /**
      * 页面配置所在的包名
@@ -59,6 +64,35 @@ object EngineConfig {
         val auConfig = AutoConfiguration()
         auConfig.config()
         auConfig.registerPages(app)
+    }
+
+    /**
+     * @return 默认字体的存储位置
+     */
+    fun getDefaultFontAssetPath(): String {
+        return sDefaultFontAssetPath
+    }
+
+    /**
+     * @return 设置默认字体的位置
+     */
+    fun setDefaultFontAssetPath(path: String) {
+        sDefaultFontAssetPath = path
+    }
+
+    /**
+     * @param fontPath 字体路径
+     * @return 获取默认字体
+     */
+    fun getDefaultTypeface(fontPath: String?): Typeface? {
+        var fontPath1 = fontPath
+        if (TextUtils.isEmpty(fontPath)) {
+            fontPath1 = sDefaultFontAssetPath
+        }
+        if (!TextUtils.isEmpty(fontPath)) {
+            return TypefaceUtils.load(app.assets, fontPath)
+        }
+        return null
     }
 
 }

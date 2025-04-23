@@ -15,8 +15,7 @@ import com.mobeiwsq.annotation.model.PageInfo
 import com.mobeiwsq.engine_project.R
 import com.mobeiwsq.engine_project.engine.core.*
 import com.mobeiwsq.engine_project.logger.PageLog
-import com.mobeiwsq.engine_project.utils.KeyBoardUtils.hideSoftInPut
-import com.mobeiwsq.engine_project.utils.KeyBoardUtils.isShouldHideInput
+import com.mobeiwsq.engine_project.utils.KeyboardUtils
 import java.lang.ref.WeakReference
 
 /**
@@ -179,9 +178,9 @@ open class EngineActivity(@LayoutRes contentLayoutId: Int = 0) :
         var isHandled = false
         if (activeFragment == null) {
             if (ev?.action == KeyEvent.ACTION_DOWN) {
-                if (isShouldHideInput(window, ev)) {
+                if (KeyboardUtils.isShouldHideKeyboard(window, ev)) {
                     currentFocus?.let { view ->
-                        hideSoftInPut(view)
+                        KeyboardUtils.hideSoftInput(view)
                     }
                 }
             }
