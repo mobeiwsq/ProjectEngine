@@ -23,4 +23,6 @@
     <color name="md_btn_selected_dark">#40CBCBCB</color>
     <color name="md_btn_selected">@color/config_color_background_pressed</color>
 
+    <color name="textSecond">#737373</color>
+
 </resources>
