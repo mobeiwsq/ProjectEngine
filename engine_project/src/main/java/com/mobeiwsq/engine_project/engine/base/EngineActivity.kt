@@ -74,7 +74,7 @@ open class EngineActivity(@LayoutRes contentLayoutId: Int = 0) :
         }
 
         onBackPressedDispatcher.addCallback(this) {
-            if (supportFragmentManager.backStackEntryCount == 1) {
+            if (supportFragmentManager.backStackEntryCount <= 1) {
                 safelyFinishActivity(this@EngineActivity, false)
             } else {
                 supportFragmentManager.popBackStack()

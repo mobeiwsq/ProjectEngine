@@ -1,6 +1,7 @@
 package com.mobeiwsq.engine_project.engine.core
 
 import android.os.Bundle
+import android.util.Log
 import androidx.lifecycle.lifecycleScope
 import com.mobeiwsq.engine_project.engine.base.EngineActivity
 import com.mobeiwsq.engine_project.engine.base.EngineFragment
@@ -34,7 +35,6 @@ fun EngineActivity.openPage(
         withContext(Dispatchers.Main.immediate) {
             openPageWithNewFragmentManager(supportFragmentManager, pageInfo.name, bundle, animations, addToBackStack)
         }
-
     }
 }
 
@@ -61,14 +61,11 @@ fun EngineFragment<*>.openPage(
         return@launch
     }
 
-    val fragmentManager = activity?.supportFragmentManager ?: run {
-        PageLog.e("Host activity is null")
-        return@launch
-    }
+    val fragmentManager = requireActivity().supportFragmentManager
 
 
     if (newActivity) {
-        startNewActivity(requireActivity() as EngineActivity,requireContext(),pageInfo)
+        startNewActivity(requireActivity() as EngineActivity, requireContext(), pageInfo)
     } else {
         withContext(Dispatchers.Main.immediate) {
             openPageWithNewFragmentManager(
@@ -79,7 +76,6 @@ fun EngineFragment<*>.openPage(
                 addToBackStack
             )
         }
-
     }
 }
 

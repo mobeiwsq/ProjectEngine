@@ -1,32 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
->
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
 
-    <androidx.appcompat.widget.LinearLayoutCompat
+    </data>
+    <LinearLayout
+            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@color/white"
-            android:orientation="vertical">
+            android:layout_height="match_parent">
 
-        <com.mobeiwsq.engine_project.view.widget.edittext.MultiLineEditText
+        <androidx.viewpager2.widget.ViewPager2
+                android:layout_weight="1"
+                android:id="@+id/vp_home"
+                android:descendantFocusability="blocksDescendants"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="0dp"
+        />
 
-        <com.mobeiwsq.engine_project.view.widget.alpha.AlphaTextView
-                android:id="@+id/textView"
-                android:text="1111111"
-                android:textSize="@dimen/dimen_20sp"
-                android:textColor="?attr/colorAccent"
-                style="@style/TextStyle.Explain"
+        <View
+                android:background="@color/line_color"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="1dp"/>
 
-        <ListView
-                android:id="@+id/listView"
+        <RadioGroup
+                android:orientation="horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"/>
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dimen_5dp">
+            <RadioButton
+                    android:layout_marginTop="@dimen/dimen_10dp"
+                    android:textColor="@color/main_color_selector"
+                    android:id="@+id/main_menu_home"
+                    android:layout_marginStart="@dimen/dimen_10dp"
+                    android:drawableTop="@drawable/select_home"
+                    android:gravity="center"
+                    android:layout_weight="1"
+                    android:textSize="@dimen/dimen_10sp"
+                    android:button="@null"
+                    android:text="首页"
+                    android:checked="true"
+                    android:layout_width="@dimen/dimen_0dp"
+                    android:layout_height="wrap_content"/>
 
 
-    </androidx.appcompat.widget.LinearLayoutCompat>
 
+            <RadioButton
+                    android:layout_marginTop="@dimen/dimen_10dp"
+                    android:id="@+id/main_menu_mine"
+                    android:textColor="@color/main_color_selector"
+                    android:layout_marginEnd="@dimen/dimen_10dp"
+                    android:gravity="center"
+                    android:layout_weight="1"
+                    android:button="@null"
+                    android:textSize="@dimen/dimen_10sp"
+                    android:text="我的"
+                    android:drawableTop="@drawable/select_mine"
+                    android:layout_width="@dimen/dimen_0dp"
+                    android:layout_height="wrap_content"/>
+        </RadioGroup>
+
+    </LinearLayout>
 </layout>
