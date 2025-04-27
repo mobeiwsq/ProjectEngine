@@ -62,7 +62,7 @@ afterEvaluate {
             release(MavenPublication) {
                 groupId = 'com.github.mobeiwsq'
                 artifactId = 'engine_project'
-                version = '0.0.3'
+                version = '1.0.11'
 
                 afterEvaluate {
                     from components.release

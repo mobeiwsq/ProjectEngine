@@ -115,6 +115,15 @@
 
         <item name="md_dialog_vertical_margin">@dimen/default_md_dialog_vertical_margin</item>
 
+        <item name="btn_view_text_size">@dimen/default_btn_view_text_size</item>
+
+        <item name="btn_view_height">@dimen/default_btn_view_height</item>
+        <item name="btn_view_width">@dimen/default_btn_view_width</item>
+
+        <item name="btn_view_radius">@dimen/default_btn_view_radius</item>
+
+        <item name="btn_view_disable_color">@color/btn_disable_color</item>
+
     </style>
 
 </resources>

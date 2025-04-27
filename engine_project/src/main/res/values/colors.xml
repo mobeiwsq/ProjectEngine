@@ -25,4 +25,14 @@
 
     <color name="textSecond">#737373</color>
 
+    <color name="btn_gray_normal_color">#9DA7B0</color>
+    <color name="btn_gray_select_color">#87919A</color>
+    <color name="btn_disable_color">#D6DDE1</color>
+
+    <color name="btn_blue_normal_color">#FF3680FF</color>
+    <color name="btn_blue_select_color">#2488C6</color>
+
+    <color name="btn_green_normal_color">#2BCFB8</color>
+    <color name="btn_green_select_color">#05BCA2</color>
+
 </resources>

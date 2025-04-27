@@ -9,6 +9,6 @@ class MainActivity : EngineActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-//        openPage(MainFragment::class.java)
+        openPage(MainFragment::class.java)
     }
 }

@@ -27,5 +27,12 @@
                 app:layout_constraintTop_toBottomOf="@+id/richang"
         />
 
+        <com.mobeiwsq.engine_project.view.widget.text.supertextview.SuperButton
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/zhaunxiag"
+                android:layout_width="match_parent"
+                style="@style/SuperButton.Blue"/>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

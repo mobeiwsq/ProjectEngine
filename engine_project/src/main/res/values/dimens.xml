@@ -50,4 +50,9 @@
     <dimen name="default_md_icon_max_size">28dp</dimen>
     <dimen name="default_md_dialog_vertical_margin">52dp</dimen>
 
+    <dimen name="default_btn_view_text_size">14sp</dimen>
+    <dimen name="default_btn_view_height">32dp</dimen>
+    <dimen name="default_btn_view_width">104dp</dimen>
+    <dimen name="default_btn_view_radius">5dp</dimen>
+
 </resources>

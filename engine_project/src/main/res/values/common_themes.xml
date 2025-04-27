@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--*********************************************
+    *                SuperButtonStyle               *
+    **********************************************-->
+    <!-- Button style -->
+    <style name="ButtonStyle">
+        <item name="android:layout_width">?attr/btn_view_width</item>
+        <item name="android:layout_height">?attr/btn_view_height</item>
+        <item name="android:textSize">?attr/btn_view_text_size</item>
+        <item name="android:textColor">@color/config_color_white</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <!-- Button style -->
+    <style name="SuperButton" parent="ButtonStyle">
+        <item name="sCornersRadius">?attr/btn_view_radius</item>
+        <item name="sSelectorDisableColor">?attr/btn_view_disable_color</item>
+        <item name="sUseSelector">true</item>
+        <item name="sGravity">center</item>
+        <item name="android:background">@null</item>
+    </style>
+
+    <!-- Gray Button Style -->
+    <style name="SuperButton.Gray">
+        <item name="sSelectorNormalColor">@color/btn_gray_normal_color</item>
+        <item name="sSelectorPressedColor">@color/btn_gray_select_color</item>
+    </style>
+
+    <!-- Green Button Style -->
+    <style name="SuperButton.Green">
+        <item name="sSelectorNormalColor">@color/btn_green_normal_color</item>
+        <item name="sSelectorPressedColor">@color/btn_green_select_color</item>
+    </style>
+
+    <!-- Blue Button Style -->
+    <style name="SuperButton.Blue">
+        <item name="sSelectorNormalColor">@color/btn_blue_normal_color</item>
+        <item name="sSelectorPressedColor">@color/btn_blue_select_color</item>
+    </style>
+
+</resources>
