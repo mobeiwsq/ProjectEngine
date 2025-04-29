@@ -14,6 +14,13 @@ class MineFragment:EngineFragment<FragmentMineBinding>(R.layout.fragment_mine) {
     }
 
     override fun initListeners() {
+        binding.button.setOnClickListener {
+            if (binding.expandableLayout.isExpanded){
+                binding.expandableLayout.collapse()
+            } else {
+                binding.expandableLayout.expand()
+            }
+        }
     }
 
     override fun initTitleBar(): TitleBar? {

@@ -252,4 +252,16 @@
         <attr name="riv_is_touch_select_mode_enabled" format="boolean" />
     </declare-styleable>
 
+    <!--可伸展的布局-->
+    <declare-styleable name="ExpandableLayout">
+        <!--动画持续的时间，默认是300ms-->
+        <attr name="el_duration" format="integer" />
+        <!--是否是展开的，默认是false-->
+        <attr name="el_expanded" format="boolean" />
+        <!--视差效果，默认是1-->
+        <attr name="el_parallax" format="float" />
+        <!--对齐方式，默认是VERTICAL，垂直-->
+        <attr name="android:orientation" />
+    </declare-styleable>
+
 </resources>
