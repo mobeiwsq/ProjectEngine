@@ -49,7 +49,7 @@ class HomeFragment : EngineFragment<FragmentHomeBinding>(R.layout.fragment_home)
         }
 
         binding.zhaunxiag.setOnClickListener {
-            openPage(SpecialInspectionFragment::class.java)
+            openPage(DailyInspectionFragment::class.java)
         }
     }
 

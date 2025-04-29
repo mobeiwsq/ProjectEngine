@@ -60,7 +60,7 @@ open class EngineActivity(@LayoutRes contentLayoutId: Int = 0) :
         rootView = layoutInflater.inflate(layoutResID, null)
     }
 
-    open fun init(){
+    open fun init() {
 
     }
 
@@ -126,9 +126,31 @@ open class EngineActivity(@LayoutRes contentLayoutId: Int = 0) :
     /**
      * 获取新跳转的activity的数据
      */
+//    private fun initNewIntent(intent: Intent) {
+//        try {
+//            val pageInfo = intent.getParcelableExtra(SWITCHER_NEW_INTENT, PageInfo::class.java)
+//            if (pageInfo != null) {
+//                openPageWithNewFragmentManager(
+//                    supportFragmentManager, pageName = pageInfo.name, animations = null, bundle = Bundle(),
+//                    addToBackStack = true,
+//                )
+//            }
+//        } catch (e: Exception) {
+//            PageLog.e(e)
+//            finish()
+//        }
+//    }
     private fun initNewIntent(intent: Intent) {
+        var pageInfo: PageInfo? = null
         try {
-            val pageInfo = intent.getParcelableExtra(SWITCHER_NEW_INTENT, PageInfo::class.java)
+            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.TIRAMISU) {
+                // API 33 及以上
+                pageInfo = intent.getParcelableExtra(SWITCHER_NEW_INTENT, PageInfo::class.java)
+            } else {
+                // API 33 以下
+                @Suppress("DEPRECATION")
+                pageInfo = intent.getParcelableExtra(SWITCHER_NEW_INTENT) as? PageInfo
+            }
             if (pageInfo != null) {
                 openPageWithNewFragmentManager(
                     supportFragmentManager, pageName = pageInfo.name, animations = null, bundle = Bundle(),
