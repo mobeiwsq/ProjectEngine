@@ -1,7 +1,6 @@
 package com.mobeiwsq.engine_project.engine.core
 
 import android.os.Bundle
-import android.util.Log
 import androidx.lifecycle.lifecycleScope
 import com.mobeiwsq.engine_project.engine.base.EngineActivity
 import com.mobeiwsq.engine_project.engine.base.EngineFragment

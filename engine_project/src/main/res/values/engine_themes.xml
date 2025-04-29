@@ -124,6 +124,17 @@
 
         <item name="btn_view_disable_color">@color/btn_disable_color</item>
 
+        <item name="popup_arrow_up_margin_top">0dp</item>
+        <item name="popup_arrow_down_margin_bottom">0dp</item>
+        <item name="popup_bg">@drawable/popup_bg</item>
+        <item name="popup_arrow_down">@drawable/popup_arrow_down</item>
+        <item name="popup_arrow_up">@drawable/popup_arrow_up</item>
+
+        <item name="config_color_separator_light">@color/config_color_separator_light</item>
+
+        <item name="config_simple_list_item_height">@dimen/config_simple_list_item_height</item>
+        <item name="config_simple_list_icon_size">@dimen/config_simple_list_icon_size</item>
+
     </style>
 
 </resources>

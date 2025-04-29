@@ -264,4 +264,23 @@
         <attr name="android:orientation" />
     </declare-styleable>
 
+    <attr name="popup_arrow_up_margin_top" format="dimension" /> <!-- 一般与popup_bg上阴影相等 -->
+    <attr name="popup_arrow_down_margin_bottom" format="dimension" /> <!-- 一般与popup_bg下阴影相等 -->
+
+    <attr name="popup_bg" format="reference" />
+    <attr name="popup_arrow_down" format="reference" />
+    <attr name="popup_arrow_up" format="reference" />
+
+    <!-- 小的分割块使用浅色的分割线-->
+    <attr name="config_color_separator_light" format="color" />
+
+    <!--WrapContentListView-->
+    <declare-styleable name="WrapContentListView">
+        <!--设置listView的最大高度-->
+        <attr name="wclv_max_height" format="dimension" />
+    </declare-styleable>
+
+    <attr name="config_simple_list_item_height" format="dimension" />
+    <attr name="config_simple_list_icon_size" format="dimension" />
+
 </resources>

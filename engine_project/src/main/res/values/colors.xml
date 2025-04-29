@@ -35,4 +35,6 @@
     <color name="btn_green_normal_color">#2BCFB8</color>
     <color name="btn_green_select_color">#05BCA2</color>
 
+    <color name="config_color_separator_light">#F0F2F4</color>
+
 </resources>

@@ -55,4 +55,9 @@
     <dimen name="default_btn_view_width">104dp</dimen>
     <dimen name="default_btn_view_radius">5dp</dimen>
 
+    <dimen name="popup_width">133dp</dimen>
+
+    <dimen name="config_simple_list_item_height">41dp</dimen>
+    <dimen name="config_simple_list_icon_size">22dp</dimen>
+
 </resources>

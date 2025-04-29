@@ -6,8 +6,10 @@ import android.graphics.drawable.Drawable
 import android.os.Build
 import androidx.annotation.DimenRes
 import androidx.annotation.DrawableRes
+import androidx.annotation.StringRes
 import androidx.annotation.StyleableRes
 import androidx.appcompat.content.res.AppCompatResources
+import com.mobeiwsq.engine_project.EngineConfig
 
 /**
 * 获取res中的资源
@@ -67,5 +69,27 @@ object ResUtils {
      */
     fun getDimensionPixelSize(context: Context, @DimenRes resId: Int): Int {
         return context.resources.getDimensionPixelSize(resId)
+    }
+
+    /**
+     * 获取资源图片
+     *
+     * @param resId 图片资源id
+     * @return 资源图片
+     */
+    @Deprecated("")
+    fun getDrawable(@DrawableRes resId: Int): Drawable? {
+        return EngineConfig.app.getDrawable(resId)
+    }
+
+    /**
+     * 获取字符串
+     *
+     * @param context 上下文
+     * @param resId   资源id
+     * @return 字符串
+     */
+    fun getString(context: Context, @StringRes resId: Int): String {
+        return context.resources.getString(resId)
     }
 }
