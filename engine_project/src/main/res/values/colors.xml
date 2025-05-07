@@ -40,4 +40,8 @@
 
     <color name="config_color_pure_black">#000000</color>
 
+    <color name="config_color_light_orange">#FFC288</color>
+    <color name="config_color_dark_orange">#FF8F5D</color>
+    <color name="default_pv_track_color">#F3E5DD</color>
+
 </resources>

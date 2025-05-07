@@ -135,6 +135,8 @@
         <item name="config_simple_list_item_height">@dimen/config_simple_list_item_height</item>
         <item name="config_simple_list_icon_size">@dimen/config_simple_list_icon_size</item>
 
+        <item name="HorizontalProgressViewStyle">@style/HorizontalProgressView</item>
+
     </style>
 
 </resources>

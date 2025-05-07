@@ -16,4 +16,8 @@
     <color name="main_color_default">#979797</color>
 
     <color name="line_color">#1B0B0A0A</color>
+
+    <color name="purple_start">#7117ea</color>
+    <color name="purple_end">#ea6060</color>
+    <color name="purple_light">#e488ff</color>
 </resources>

@@ -83,4 +83,23 @@
         <item name="android:windowAnimationStyle">@android:style/Animation</item>
     </style>
 
+    <!--HorizontalProgressView-->
+    <style name="HorizontalProgressView">
+        <item name="hpv_start_progress">0</item>
+        <item name="hpv_end_progress">60</item>
+        <item name="hpv_start_color">@color/config_color_light_orange</item>
+        <item name="hpv_end_color">@color/config_color_dark_orange</item>
+        <item name="hpv_isTracked">false</item>
+        <item name="hpv_track_width">@dimen/default_pv_trace_width</item>
+        <item name="hpv_track_color">@color/default_pv_track_color</item>
+        <item name="hpv_progress_duration">1200</item>
+        <item name="hpv_progress_textVisibility">true</item>
+        <item name="hpv_progress_textColor">?attr/colorAccent</item>
+        <item name="hpv_progress_textSize">@dimen/default_pv_progress_text_size</item>
+        <item name="hpv_animate_type">AccelerateDecelerateInterpolator</item>
+        <item name="hpv_corner_radius">@dimen/default_pv_corner_radius</item>
+        <item name="hpv_text_padding_bottom">@dimen/default_pv_corner_radius</item>
+        <item name="hpv_text_movedEnable">true</item>
+    </style>
+
 </resources>

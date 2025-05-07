@@ -60,4 +60,9 @@
     <dimen name="config_simple_list_item_height">41dp</dimen>
     <dimen name="config_simple_list_icon_size">22dp</dimen>
 
+    <dimen name="default_pv_trace_width">16dp</dimen>
+    <dimen name="default_pv_progress_text_size">28sp</dimen>
+    <dimen name="default_pv_corner_radius">5dp</dimen>
+    <dimen name="default_pv_horizontal_text_size">14sp</dimen>
+
 </resources>

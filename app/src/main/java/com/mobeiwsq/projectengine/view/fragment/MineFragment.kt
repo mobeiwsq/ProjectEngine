@@ -1,18 +1,22 @@
 package com.mobeiwsq.projectengine.view.fragment
 
+import android.view.View
 import com.mobeiwsq.engine_project.engine.base.EngineFragment
 import com.mobeiwsq.engine_project.view.imageview.preview.PreviewBuilder
 import com.mobeiwsq.engine_project.view.imageview.preview.enitity.ImageViewInfo
+import com.mobeiwsq.engine_project.view.progress.HorizontalProgressView.HorizontalProgressUpdateListener
 import com.mobeiwsq.engine_project.view.title.TitleBar
 import com.mobeiwsq.projectengine.R
 import com.mobeiwsq.projectengine.databinding.FragmentMineBinding
 
-class MineFragment : EngineFragment<FragmentMineBinding>(R.layout.fragment_mine) {
+class MineFragment : EngineFragment<FragmentMineBinding>(R.layout.fragment_mine) ,HorizontalProgressUpdateListener{
 
     override fun initView() {
+        binding.hpvLanguage.setProgressViewUpdateListener(this)
     }
 
     override fun initData() {
+        binding.hpvLanguage.startProgressAnimation()
     }
 
     override fun initListeners() {
@@ -33,6 +37,15 @@ class MineFragment : EngineFragment<FragmentMineBinding>(R.layout.fragment_mine)
 
     override fun initTitleBar(): TitleBar? {
         return null
+    }
+
+    override fun onHorizontalProgressStart(view: View?) {
+    }
+
+    override fun onHorizontalProgressUpdate(view: View?, progress: Float) {
+    }
+
+    override fun onHorizontalProgressFinished(view: View?) {
     }
 
 
