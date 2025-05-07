@@ -2,4 +2,11 @@
 <resources>
     <!--默认字体路径-->
     <string name="default_app_font_path"></string>
+
+
+    <string name="description_picture">图片</string>
+    <string name="preview_count_string">%1$d/%2$d</string>
+
+    <string name="preview_video_path_error">资源加载失败</string>
+    <string name="preview_play_failed">播放失败</string>
 </resources>

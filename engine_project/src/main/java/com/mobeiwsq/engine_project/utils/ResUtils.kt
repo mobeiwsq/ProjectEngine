@@ -1,14 +1,13 @@
 package com.mobeiwsq.engine_project.utils
 
 import android.content.Context
+import android.content.res.ColorStateList
 import android.content.res.TypedArray
 import android.graphics.drawable.Drawable
 import android.os.Build
-import androidx.annotation.DimenRes
-import androidx.annotation.DrawableRes
-import androidx.annotation.StringRes
-import androidx.annotation.StyleableRes
+import androidx.annotation.*
 import androidx.appcompat.content.res.AppCompatResources
+import androidx.core.content.ContextCompat
 import com.mobeiwsq.engine_project.EngineConfig
 
 /**
@@ -91,5 +90,16 @@ object ResUtils {
      */
     fun getString(context: Context, @StringRes resId: Int): String {
         return context.resources.getString(resId)
+    }
+
+    /**
+     * 获取ColorStateList值
+     *
+     * @param context 上下文
+     * @param resId   资源id
+     * @return ColorStateList值
+     */
+    fun getColors(context: Context, @ColorRes resId: Int): ColorStateList? {
+        return ContextCompat.getColorStateList(context, resId)
     }
 }

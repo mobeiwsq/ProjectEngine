@@ -1,6 +1,7 @@
 package com.mobeiwsq.engine_project
 
 import android.annotation.SuppressLint
+import android.app.Application
 import android.content.Context
 import android.graphics.Typeface
 import android.text.TextUtils
@@ -64,6 +65,10 @@ object EngineConfig {
         val auConfig = AutoConfiguration()
         auConfig.config()
         auConfig.registerPages(app)
+    }
+
+    fun init(context: Application){
+        app = context
     }
 
     /**

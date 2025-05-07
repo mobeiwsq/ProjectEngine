@@ -33,26 +33,14 @@
 
         </com.mobeiwsq.engine_project.view.widget.layout.ExpandableLayout>
 
-        <!--        <com.mobeiwsq.engine_project.view.widget.layout.ExpandableLayout-->
-        <!--                android:id="@+id/expandable_layout"-->
-        <!--                android:layout_width="match_parent"-->
-        <!--                android:layout_height="wrap_content"-->
-        <!--                android:layout_marginTop="@dimen/dimen_100dp"-->
-        <!--                android:background="@color/red"-->
-        <!--                app:layout_constraintStart_toStartOf="parent"-->
-        <!--                app:layout_constraintEnd_toEndOf="parent"-->
-        <!--                app:layout_constraintTop_toTopOf="parent"-->
-        <!--                app:el_duration="300"-->
-        <!--                app:el_expanded="false">-->
+        <com.mobeiwsq.engine_project.view.imageview.RadiusImageView
+                android:id="@+id/img_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/img_beautiful_scenery"
+                android:clickable="true"
+                app:riv_is_circle="true"/>
 
-        <!--            <TextView-->
-        <!--                    android:id="@+id/tv_content"-->
-        <!--                    style="@style/TextStyle.Explain"-->
-        <!--                    android:padding="16dp"-->
-        <!--                    android:textColor="@color/black"-->
-        <!--                    tools:text="这里面是内容" />-->
-
-        <!--        </com.mobeiwsq.engine_project.view.widget.layout.ExpandableLayout>-->
 
     </LinearLayout>
 </layout>

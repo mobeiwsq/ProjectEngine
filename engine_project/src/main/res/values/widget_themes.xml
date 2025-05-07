@@ -70,7 +70,17 @@
         <item name="android:windowExitAnimation">@anim/picker_view_dialog_scale_out</item>
     </style>
 
-    <!--**********************************************
-       *               通用颜色属性设置                    *
-       ***********************************************-->
+    <!--Translucent，半透明主题-->
+    <style name="EngineTheme.Translucent">
+        <item name="colorPrimaryDark">@color/config_color_pure_black</item>
+        <item name="android:windowBackground">@color/config_color_transparent</item>
+        <item name="android:colorBackgroundCacheHint">@null</item>
+        <item name="android:windowNoTitle">true</item>　　　　　
+        <!--是否半透明-->
+        <item name="android:windowIsTranslucent">true</item>
+        <!--是否有覆盖-->
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation</item>
+    </style>
+
 </resources>

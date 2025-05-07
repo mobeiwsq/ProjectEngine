@@ -37,4 +37,7 @@
 
     <color name="config_color_separator_light">#F0F2F4</color>
 
+
+    <color name="config_color_pure_black">#000000</color>
+
 </resources>
