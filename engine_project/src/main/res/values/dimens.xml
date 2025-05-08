@@ -65,4 +65,12 @@
     <dimen name="default_pv_corner_radius">5dp</dimen>
     <dimen name="default_pv_horizontal_text_size">14sp</dimen>
 
+    <!-- DropDownMenu-->
+    <dimen name="default_ddm_underline_height">1dp</dimen>
+    <dimen name="default_ddm_divider_width">0.5dp</dimen>
+    <dimen name="default_ddm_divider_margin">10dp</dimen>
+    <dimen name="default_ddm_menu_text_size">14sp</dimen>
+    <dimen name="default_ddm_menu_text_padding_horizontal">5dp</dimen>
+    <dimen name="default_ddm_menu_text_padding_vertical">12dp</dimen>
+
 </resources>

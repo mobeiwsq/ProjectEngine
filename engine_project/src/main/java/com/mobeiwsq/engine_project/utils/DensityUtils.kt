@@ -2,6 +2,7 @@ package com.mobeiwsq.engine_project.utils
 
 import android.app.Activity
 import android.content.Context
+import android.graphics.Point
 import android.os.Build
 import android.util.DisplayMetrics
 import android.view.WindowManager
@@ -70,5 +71,43 @@ object DensityUtils {
             return realHeight - displayHeight
         }
         return max((realWidth - displayWidth).toDouble(), 0.0).toInt()
+    }
+
+    /**
+     * 获取上下文所在的高度
+     *
+     * @param context 上下文
+     * @param isReal  是否是真实的尺寸
+     * @return 上下文所在的高度
+     */
+    fun getDisplayHeight(context: Context, isReal: Boolean): Int {
+        val point: Point? = getDisplaySize(context, isReal)
+        return point?.y ?: 0
+    }
+
+    /**
+     * 获取上下文所在的尺寸
+     *
+     * @param context 上下文
+     * @param isReal  是否是真实的尺寸
+     * @return 上下文所在的尺寸
+     */
+    fun getDisplaySize(context: Context, isReal: Boolean): Point? {
+        val windowManager = if (context is Activity) {
+            (context as Activity).windowManager
+        } else {
+            context.getSystemService(Context.WINDOW_SERVICE) as WindowManager
+        }
+        if (windowManager == null) {
+            return null
+        }
+        val display = windowManager.defaultDisplay
+        val point = Point()
+        if (isReal) {
+            display.getRealSize(point)
+        } else {
+            display.getSize(point)
+        }
+        return point
     }
 }

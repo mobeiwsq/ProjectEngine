@@ -3,6 +3,7 @@ package com.mobeiwsq.engine_project.adapter;
 import android.content.Context;
 import android.view.Gravity;
 import android.view.View;
+import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import com.mobeiwsq.engine_project.R;
 import com.mobeiwsq.engine_project.adapter.listview.BaseListAdapter;
@@ -33,7 +34,7 @@ public class SimpleAdapter extends BaseListAdapter<AdapterItem, ViewHolder> {
     }
 
     @Override
-    protected ViewHolder newViewHolder(View convertView) {
+    protected ViewHolder newViewHolder(View convertView, ViewGroup parent) {
         ViewHolder holder = new ViewHolder();
         holder.mLLContentView = convertView.findViewById(R.id.ll_content);
         holder.mTvTitle = convertView.findViewById(R.id.tv_title);

@@ -29,7 +29,7 @@ public abstract class BaseListAdapter<T, H> extends XListAdapter<T> {
         H holder;
         if (convertView == null) {
             convertView = View.inflate(getContext(), getLayoutId(), null);
-            holder = newViewHolder(convertView);
+            holder = newViewHolder(convertView,parent);
 
             convertView.setTag(holder);
         } else {
@@ -49,7 +49,7 @@ public abstract class BaseListAdapter<T, H> extends XListAdapter<T> {
      * @param convertView 内容
      * @return ViewHolder
      */
-    protected abstract H newViewHolder(View convertView);
+    protected abstract H newViewHolder(View convertView,ViewGroup parent);
 
     /**
      * 获取适配的布局ID

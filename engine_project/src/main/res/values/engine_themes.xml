@@ -137,6 +137,9 @@
 
         <item name="HorizontalProgressViewStyle">@style/HorizontalProgressView</item>
 
+        <item name="DropDownMenuStyle">@style/DropDownMenu</item>
+        <item name="config_color_disable">@color/config_color_edittext_disable</item>
+
     </style>
 
 </resources>

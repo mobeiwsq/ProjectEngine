@@ -44,4 +44,9 @@
     <color name="config_color_dark_orange">#FF8F5D</color>
     <color name="default_pv_track_color">#F3E5DD</color>
 
+    <!--DropDownMenu-->
+    <color name="default_ddm_mask_color">#88888888</color>
+    <!--不可输入的填充颜色-->
+    <color name="config_color_edittext_disable">#EDF2F7</color>
+
 </resources>
