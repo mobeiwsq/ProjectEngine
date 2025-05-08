@@ -20,4 +20,6 @@
     <color name="purple_start">#7117ea</color>
     <color name="purple_end">#ea6060</color>
     <color name="purple_light">#e488ff</color>
+
+    <color name="content_background">#f2f2f2</color>
 </resources>
