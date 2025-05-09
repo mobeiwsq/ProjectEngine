@@ -5,6 +5,7 @@ import android.content.Context;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 
 
 /**
@@ -58,7 +59,7 @@ public abstract class GroupRecyclerAdapter<Parent, Child> extends BaseRecyclerAd
      * @param groups groups
      * @param titles titles
      */
-    protected void resetGroups(LinkedHashMap<Parent, List<Child>> groups, List<Parent> titles) {
+    protected void resetGroups(Map<Parent, List<Child>> groups, List<Parent> titles) {
         if (groups == null || titles == null) {
             return;
         }
