@@ -67,7 +67,7 @@ public class GroupItemDecoration<Group, Child> extends RecyclerView.ItemDecorati
     protected void onDrawGroup(Canvas c, RecyclerView parent) {
         int paddingLeft = parent.getPaddingLeft();
         int right = parent.getWidth() - parent.getPaddingRight();
-        int top, bottom;
+        int top = 0, bottom = 0;
         int count = parent.getChildCount();
         for (int i = 0; i < parent.getChildCount(); i++) {
             View child = parent.getChildAt(i);

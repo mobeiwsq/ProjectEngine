@@ -3,9 +3,31 @@
     <data>
 
     </data>
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
+            android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
+        <com.mobeiwsq.engine_project.view.widget.edittext.PasswordEditText
+                android:drawableStart="@mipmap/password_icon"
+                android:hint="请输入密码"
+                style="@style/EditText.Normal"
+                android:layout_marginStart="@dimen/dimen_10dp"
+                android:layout_marginEnd="@dimen/dimen_10dp"
+                android:minHeight="@dimen/dimen_38dp"
+                android:layout_marginTop="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        <com.mobeiwsq.engine_project.view.widget.edittext.ClearEditText
+                android:drawableStart="@mipmap/password_icon"
+                android:hint="请输入密码"
+                style="@style/EditText.Normal"
+                android:minHeight="@dimen/dimen_38dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginStart="@dimen/dimen_10dp"
+                android:layout_marginEnd="@dimen/dimen_10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+    </LinearLayout>
 </layout>

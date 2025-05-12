@@ -466,4 +466,7 @@
         <attr name="group_has_header" format="boolean" />
     </declare-styleable>
 
+    <!--应用边框的颜色-->
+    <attr name="config_color_stroke" format="color" />
+
 </resources>

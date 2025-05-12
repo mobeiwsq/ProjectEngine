@@ -139,6 +139,7 @@
 
         <item name="DropDownMenuStyle">@style/DropDownMenu</item>
         <item name="config_color_disable">@color/config_color_edittext_disable</item>
+        <item name="config_color_stroke">#BEC2C7</item>
 
     </style>
 

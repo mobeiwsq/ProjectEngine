@@ -39,6 +39,12 @@
         <item name="pet_enableIconAlpha">true</item>
     </style>
 
+    <style name="EditText.Normal">
+        <item name="android:background">@drawable/config_bg_edittext</item>
+    </style>
+
+
+
     <!-- BaseDialog -->
     <style name="EngineDialog" parent="@android:style/Theme.Dialog">
         <!-- Dialog的windowFrame框为无 -->

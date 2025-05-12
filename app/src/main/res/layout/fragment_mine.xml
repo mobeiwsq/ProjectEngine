@@ -55,6 +55,12 @@
 <!--                app:hpv_track_color="#f4f4f4"-->
 <!--                app:hpv_track_width="8dp" />-->
 
+        <com.mobeiwsq.engine_project.view.widget.edittext.PasswordEditText
+                android:drawableStart="@mipmap/password_icon"
+                android:hint="111111111111111"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
         <com.mobeiwsq.engine_project.view.widget.menu.DropDownMenu
                 android:id="@+id/drop_down_menu"
                 android:layout_width="match_parent"

@@ -231,10 +231,10 @@ public class PasswordEditText extends AppCompatEditText {
         if (shouldShowIcon) {
             Drawable drawable = mPasswordVisible ? mShowPwDrawable : mHidePwDrawable;
             mShowingIcon = true;
-            setCompoundDrawablesRelativeWithIntrinsicBounds(null, null, drawable, null);
+            setCompoundDrawablesRelativeWithIntrinsicBounds(getCompoundDrawablesRelative()[0], null, drawable, null);
         } else {
             // reset drawable
-            setCompoundDrawablesRelative(null, null, null, null);
+            setCompoundDrawablesRelative(getCompoundDrawablesRelative()[0], null, null, null);
             mShowingIcon = false;
         }
     }
