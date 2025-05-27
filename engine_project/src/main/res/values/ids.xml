@@ -4,4 +4,13 @@
     <item name="fragment_container" type="id"/>
 
     <item name="item_image_key" type="id" />
+    <!--SuperTextView-->
+    <item name="sLeftViewId" type="id" />
+    <item name="sCenterViewId" type="id" />
+    <item name="sCenterEditTextId" type="id" />
+    <item name="sRightViewId" type="id" />
+    <item name="sLeftImgId" type="id" />
+    <item name="sRightImgId" type="id" />
+    <item name="sRightCheckBoxId" type="id" />
+    <item name="sRightSwitchId" type="id" />
 </resources>

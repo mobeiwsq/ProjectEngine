@@ -60,6 +60,10 @@
                 android:hint="111111111111111"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
+        <com.mobeiwsq.engine_project.view.widget.text.supertextview.SuperTextView
+                style="@style/InfoItem.Account"
+                app:sLeftTextString="帐号管理"
+        />
 
         <com.mobeiwsq.engine_project.view.widget.menu.DropDownMenu
                 android:id="@+id/drop_down_menu"
@@ -67,6 +71,8 @@
                 android:layout_height="match_parent"
                 app:ddm_contentLayoutId="@layout/test"
         />
+        
+
 
 
     </LinearLayout>

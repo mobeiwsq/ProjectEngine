@@ -259,4 +259,13 @@ public class ThemeUtils {
             a.recycle();
         }
     }
+    public static int resolveInt(Context context, int attrRes, int defaultValue) {
+        TypedArray a = context.obtainStyledAttributes(new int[]{attrRes});
+        try {
+            return a.getInt(0, defaultValue);
+        } finally {
+            a.recycle();
+        }
+    }
+
 }

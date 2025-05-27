@@ -5,6 +5,7 @@
     <color name="default_actionbar_color">#299EE3</color>
 
     <color name="config_color_separator_dark">#E3E6EA</color>
+    <color name="stv_color_common_pressed">#10000000</color>  <!--白色背景按下去的颜色-->
     <!--条目点击后的背景颜色-->
     <color name="config_color_background_pressed">@color/config_color_pressed</color>
     <color name="config_color_pressed">#F2F6F9</color>
@@ -48,5 +49,10 @@
     <color name="default_ddm_mask_color">#88888888</color>
     <!--不可输入的填充颜色-->
     <color name="config_color_edittext_disable">#EDF2F7</color>
+
+    <color name="stv_color_common_text">#FF373737</color>  <!--默认字体的颜色-->
+
+    <color name="config_color_black">#333333</color>
+    <color name="config_color_gray_4">#717882</color>
 
 </resources>

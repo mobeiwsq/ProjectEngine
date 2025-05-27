@@ -102,4 +102,28 @@ object ResUtils {
     fun getColors(context: Context, @ColorRes resId: Int): ColorStateList? {
         return ContextCompat.getColorStateList(context, resId)
     }
+
+    /**
+     * 获取ColorStateList属性（兼容?attr属性）
+     *
+     * @param context        上下文
+     * @param typedArray     样式属性数组
+     * @param styleableResId 样式资源ID
+     * @return ColorStateList
+     */
+    fun getColorStateListAttrRes(
+        context: Context?,
+        typedArray: TypedArray,
+        @StyleableRes styleableResId: Int
+    ): ColorStateList? {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            return typedArray.getColorStateList(styleableResId)
+        } else {
+            val resourceId = typedArray.getResourceId(styleableResId, -1)
+            if (resourceId != -1) {
+                return AppCompatResources.getColorStateList(context!!, resourceId)
+            }
+        }
+        return null
+    }
 }
