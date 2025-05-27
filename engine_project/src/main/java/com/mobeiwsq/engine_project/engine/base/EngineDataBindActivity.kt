@@ -15,13 +15,9 @@ abstract class EngineDataBindActivity<B : ViewDataBinding>(@LayoutRes contentLay
     }
 
     override fun init() {
-        try {
-            initView()
-            initData()
-            initListeners()
-        } catch (e: Exception) {
-            Log.e("Engine", "Initializing failure", e)
-        }
+        initView()
+        initData()
+        initListeners()
     }
 
     protected abstract fun initView()
