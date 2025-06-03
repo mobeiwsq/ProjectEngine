@@ -1,14 +1,16 @@
 package com.mobeiwsq.projectengine
 
-import android.os.Bundle
-import com.mobeiwsq.engine_project.engine.base.EngineActivity
-import com.mobeiwsq.engine_project.engine.core.openPage
-import com.mobeiwsq.projectengine.view.fragment.MainFragment
+import com.mobeiwsq.engine_project.easy.view.EasyToolbarActivity
+import com.mobeiwsq.projectengine.databinding.ActivityMainBinding
 
-class MainActivity : EngineActivity() {
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        openPage(MainFragment::class.java)
+class MainActivity : EasyToolbarActivity<ActivityMainBinding>(R.layout.activity_main) {
+    override fun initView() {
     }
+
+    override fun initData() {
+    }
+
+    override fun initListeners() {
+    }
+
 }

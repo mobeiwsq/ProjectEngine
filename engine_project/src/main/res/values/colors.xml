@@ -55,4 +55,7 @@
     <color name="config_color_black">#333333</color>
     <color name="config_color_gray_4">#717882</color>
 
+    <!--字体颜色-->
+    <color name="textColor">#333333</color>
+
 </resources>
