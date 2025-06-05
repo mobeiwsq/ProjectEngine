@@ -3,6 +3,7 @@ package com.mobeiwsq.engine_project
 import android.content.Context
 import android.text.InputType
 import android.util.Log
+import android.view.View
 import androidx.annotation.ArrayRes
 import androidx.annotation.StringRes
 import com.mobeiwsq.engine_project.utils.DateUtils
@@ -19,6 +20,24 @@ import java.util.*
  * @author : mobeiwsq
  * @since :  2025/4/23 14:50
  */
+
+/**
+ * 自定义UI
+ */
+fun showCustomDialog(
+    context: Context, customView: View,
+    positiveText: String, negativeText: String,
+    callback: MaterialDialog.SingleButtonCallback,
+    callbackOut: MaterialDialog.SingleButtonCallback
+): MaterialDialog? {
+    return MaterialDialog.Builder(context)
+        .customView(customView,false)
+        .positiveText(positiveText)
+        .onPositive(callback)
+        .onNegative(callbackOut)
+        .negativeText(negativeText)
+        .build()
+}
 
 
 /**

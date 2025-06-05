@@ -76,12 +76,12 @@
     **********************************************-->
     <style name="MD_ActionButton">
         <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">?attr/md_button_height</item>
+        <item name="android:layout_height">@dimen/dimen_48dp</item>
         <item name="android:layout_gravity">center_vertical</item>
     </style>
 
     <style name="MD_ActionButton.Text" tools:ignore="NewApi">
-        <item name="android:textSize">?attr/md_button_textsize</item>
+        <item name="android:textSize">15sp</item>
         <item name="android:singleLine">true</item>
         <item name="android:layout_gravity">center_vertical</item>
         <item name="android:gravity">center</item>
