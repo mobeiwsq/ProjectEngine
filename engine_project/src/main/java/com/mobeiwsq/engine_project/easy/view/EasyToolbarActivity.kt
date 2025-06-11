@@ -36,7 +36,11 @@ abstract class EasyToolbarActivity<B : ViewDataBinding>(@LayoutRes contentLayout
     }
 
     override fun setTitle(titleId: Int) {
-        title = getString(titleId)
+        this.title = getString(titleId)
+    }
+
+    fun setActionRight(title: CharSequence?) {
+        if (this::actionRight.isInitialized) actionRight.text = title ?: return
     }
 
     @SuppressLint("InflateParams")

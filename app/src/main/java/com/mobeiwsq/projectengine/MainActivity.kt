@@ -7,6 +7,7 @@ import com.mobeiwsq.projectengine.ui.AddInspectionDialog
 
 class MainActivity : EasyToolbarActivity<ActivityMainBinding>(R.layout.activity_main) {
     override fun initView() {
+        setActionRight("保存")
     }
 
     override fun initData() {
@@ -18,6 +19,9 @@ class MainActivity : EasyToolbarActivity<ActivityMainBinding>(R.layout.activity_
     }
 
     override fun initListeners() {
+        actionRight.setOnClickListener {
+            Log.d("MainActivity_TAG", "initListeners: 111111111111111")
+        }
     }
 
 
