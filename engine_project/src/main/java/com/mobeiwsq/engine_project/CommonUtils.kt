@@ -31,7 +31,7 @@ fun showCustomDialog(
     callbackOut: MaterialDialog.SingleButtonCallback
 ): MaterialDialog? {
     return MaterialDialog.Builder(context)
-        .customView(customView,false)
+        .customView(customView, false)
         .positiveText(positiveText)
         .onPositive(callback)
         .onNegative(callbackOut)
@@ -205,6 +205,29 @@ fun showTimePickerDialog(context: Context, listener: OnTimeSelectListener, daySt
     val startDate = Calendar.getInstance()
     startDate.time = DateUtils.getStartOfDay(Date(), -dayStart)
     val nowDate = Calendar.getInstance()
+    val calendar = Calendar.getInstance()
+    calendar.time = DateUtils.getStartOfDay(Date(), dayEnd)
+    TimePickerBuilder(context, listener)
+        .setTimeSelectChangeListener { date -> Log.i("pvTime", "onTimeSelectChanged") }
+        .setType(TimePickerType.DEFAULT)
+        .setTitleText("时间选择")
+        .isDialog(true)
+        .setOutSideCancelable(false)
+        .setDate(nowDate)
+        .setRangDate(startDate, calendar)
+        .build().show()
+}
+
+// 时间选择器，具体到日，并传递当前日期
+fun showTimePickerDialog(
+    context: Context,
+    listener: OnTimeSelectListener,
+    nowDate: Calendar,
+    dayStart: Int,
+    dayEnd: Int
+) {
+    val startDate = Calendar.getInstance()
+    startDate.time = DateUtils.getStartOfDay(Date(), -dayStart)
     val calendar = Calendar.getInstance()
     calendar.time = DateUtils.getStartOfDay(Date(), dayEnd)
     TimePickerBuilder(context, listener)
