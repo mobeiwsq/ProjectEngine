@@ -90,7 +90,7 @@
         android:id="@+id/exit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@mipmap/button_2"
+        android:background="@drawable/button_2"
         android:elevation="10dp"
         android:text="取消选择"
         android:layout_margin="10dp">
