@@ -17,7 +17,7 @@
             android:layout_height="45dp"
             android:layout_gravity="center_vertical"
             android:layout_marginRight="20dp"
-            android:src="@drawable/unknown">
+            android:src="@mipmap/unknown">
         </ImageView>
 
         <LinearLayout
