@@ -23,6 +23,7 @@
         <activity
                 android:name="com.mobeiwsq.engine_project.view.imageview.preview.ui.VideoPlayerActivity"
                 android:theme="@style/EngineTheme.Translucent"/>
+        <activity android:name=".file.FileSelectActivity"/>
     </application>
 
 </manifest>
