@@ -15,12 +15,12 @@
 
     <!--基础输入框样式-->
     <style name="EditText" parent="EditTextBase">
-        <item name="android:layout_height">?attr/config_size_edittext_height</item>
-        <item name="android:textSize">?attr/config_size_edittext_input_text</item>
-        <item name="android:paddingStart">?attr/config_size_edittext_left_padding</item>
-        <item name="android:paddingEnd">?attr/config_size_edittext_left_padding</item>
-        <item name="android:textColor">?attr/config_color_input_text</item>
-        <item name="android:textColorHint">?attr/config_color_hint_text</item>
+        <item name="android:layout_height">36dp</item>
+        <item name="android:textSize">13sp</item>
+        <item name="android:paddingStart">10dp</item>
+        <item name="android:paddingEnd">10dp</item>
+        <item name="android:textColor">#333333</item>
+        <item name="android:textColorHint">#C5CDD9</item>
         <item name="android:singleLine">true</item>
         <!--华为手机光标问题解决-->
         <item name="android:imeOptions">normal</item>
@@ -42,7 +42,6 @@
     <style name="EditText.Normal">
         <item name="android:background">@drawable/config_bg_edittext</item>
     </style>
-
 
 
     <!-- BaseDialog -->
