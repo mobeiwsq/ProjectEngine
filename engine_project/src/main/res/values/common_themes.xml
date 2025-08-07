@@ -15,8 +15,8 @@
 
     <!-- Button style -->
     <style name="SuperButton" parent="ButtonStyle">
-        <item name="sCornersRadius">?attr/btn_view_radius</item>
-        <item name="sSelectorDisableColor">?attr/btn_view_disable_color</item>
+        <item name="sCornersRadius">5dp</item>
+        <item name="sSelectorDisableColor">#D6DDE1</item>
         <item name="sUseSelector">true</item>
         <item name="sGravity">center</item>
         <item name="android:background">@null</item>
