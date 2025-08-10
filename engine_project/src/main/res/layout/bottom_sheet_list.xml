@@ -7,7 +7,6 @@
     <TextView
         android:id="@+id/title"
         style="@style/BottomSheetTitleStyle"
-        android:textAppearance="?attr/bottom_sheet_title_appearance"
         android:visibility="gone" />
 
     <ListView
