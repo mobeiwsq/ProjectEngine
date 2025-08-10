@@ -1,5 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layer-list xmlns:android="http://schemas.android.com/apk/res/android" >
-    <item android:drawable="#E3E6EA"/>
-    <item android:drawable="@color/config_color_white" android:bottom="0.5dp"/>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- 用shape包裹颜色作为drawable -->
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="#E3E6EA" />
+        </shape>
+    </item>
+    <item android:bottom="0.5dp">
+        <shape android:shape="rectangle">
+            <solid android:color="#F2F6F9" />
+        </shape>
+    </item>
 </layer-list>
