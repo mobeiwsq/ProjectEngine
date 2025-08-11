@@ -106,7 +106,7 @@
         <item name="md_content_textsize">@dimen/default_md_content_textsize</item>
 
         <item name="md_explain_textsize">@dimen/default_md_explain_textsize</item>
-        <item name="md_explain_color">?attr/config_color_explain_text</item>
+        <item name="md_explain_color">#9FABBC</item>
 
         <item name="md_content_color">?attr/config_color_content_text</item>
         <item name="md_title_color">?attr/config_color_title_text</item>

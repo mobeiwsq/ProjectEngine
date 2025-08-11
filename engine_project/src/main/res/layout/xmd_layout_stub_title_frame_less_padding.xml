@@ -5,16 +5,16 @@
     android:layout_height="wrap_content"
     android:gravity="center_vertical"
     android:orientation="horizontal"
-    android:paddingStart="?attr/md_dialog_frame_margin"
-    android:paddingTop="?attr/md_dialog_frame_margin"
-    android:paddingEnd="?attr/md_dialog_frame_margin"
+    android:paddingStart="25dp"
+    android:paddingTop="25dp"
+    android:paddingEnd="25dp"
     android:paddingBottom="@dimen/md_title_frame_margin_bottom_less">
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/md_icon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="?attr/md_icon_margin"
+        android:layout_marginEnd="6dp"
         android:scaleType="fitXY"
         tools:ignore="ContentDescription" />
 
@@ -22,7 +22,7 @@
         android:id="@+id/md_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="?attr/md_title_textsize"
+        android:textSize="@dimen/dimen_19sp"
         tools:text="Title" />
 
 </LinearLayout>

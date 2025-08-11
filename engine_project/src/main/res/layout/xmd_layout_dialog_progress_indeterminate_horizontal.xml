@@ -14,8 +14,8 @@
     android:layout_weight="1"
     android:orientation="vertical"
     android:paddingBottom="@dimen/md_content_padding_bottom"
-    android:paddingStart="?attr/md_dialog_frame_margin"
-    android:paddingEnd="?attr/md_dialog_frame_margin"
+    android:paddingStart="25dp"
+    android:paddingEnd="25dp"
     android:paddingTop="@dimen/md_content_padding_top">
 
     <include layout="@layout/xmd_layout_stub_progress_indeterminate_horizontal"/>

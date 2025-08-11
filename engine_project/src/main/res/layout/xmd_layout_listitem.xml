@@ -14,7 +14,7 @@
         android:layout_height="match_parent"
         android:layout_gravity="start"
         android:layout_marginStart="@dimen/md_listitem_margin_left"
-        android:layout_marginEnd="?attr/md_dialog_frame_margin"
+        android:layout_marginEnd="25dp"
         android:gravity="center_vertical"
         android:paddingTop="@dimen/md_listitem_vertical_margin"
         android:paddingBottom="@dimen/md_listitem_vertical_margin"

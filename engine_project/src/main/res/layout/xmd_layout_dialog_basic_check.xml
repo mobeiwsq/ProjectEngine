@@ -29,9 +29,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/md_content_padding_top"
-                android:paddingStart="?attr/md_dialog_frame_margin"
-                android:paddingEnd="?attr/md_dialog_frame_margin"
-                android:textSize="?attr/md_content_textsize"
+                android:paddingStart="25dp"
+                android:paddingEnd="25dp"
+                android:textSize="15sp"
                 tools:text="Content" />
 
         </ScrollView>

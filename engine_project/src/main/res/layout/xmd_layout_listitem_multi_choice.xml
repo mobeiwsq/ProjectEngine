@@ -7,8 +7,8 @@
     android:focusable="true"
     android:minHeight="@dimen/md_listitem_height"
     android:orientation="horizontal"
-    android:paddingStart="?attr/md_dialog_frame_margin"
-    android:paddingEnd="?attr/md_dialog_frame_margin"
+    android:paddingStart="25dp"
+    android:paddingEnd="25dp"
     tools:gravity="start|center_vertical">
 
     <androidx.appcompat.widget.AppCompatCheckBox

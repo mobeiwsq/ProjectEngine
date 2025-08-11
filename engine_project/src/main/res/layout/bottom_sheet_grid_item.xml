@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.mobeiwsq.engine_project.view.dialog.bottomsheet.BottomSheetItemView
         xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="?attr/bottom_sheet_grid_item_mini_width"
+        android:layout_width="84dp"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
         android:orientation="vertical"
-        android:paddingTop="?attr/bottom_sheet_grid_item_paddingTop"
-        android:paddingBottom="?attr/bottom_sheet_grid_item_paddingBottom">
+        android:paddingTop="0dp"
+        android:paddingBottom="8dp">
     <RelativeLayout
-            android:layout_width="?attr/bottom_sheet_grid_item_icon_size"
-            android:layout_height="?attr/bottom_sheet_grid_item_icon_size"
-            android:layout_marginTop="?attr/bottom_sheet_grid_item_icon_marginTop"
-            android:layout_marginBottom="?attr/bottom_sheet_grid_item_icon_marginBottom">
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="9dp">
         <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/grid_item_image"
                 android:layout_width="match_parent"
@@ -33,6 +33,5 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
-            android:maxLines="2"
-            android:textAppearance="?attr/bottom_sheet_grid_item_text_appearance"/>
+            android:maxLines="2"/>
 </com.mobeiwsq.engine_project.view.dialog.bottomsheet.BottomSheetItemView>

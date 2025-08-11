@@ -23,11 +23,11 @@
                 android:id="@+id/md_content"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingStart="?attr/md_dialog_frame_margin"
+                android:paddingStart="25dp"
                 android:paddingTop="@dimen/md_content_padding_top"
-                android:paddingEnd="?attr/md_dialog_frame_margin"
+                android:paddingEnd="25dp"
                 android:paddingBottom="@dimen/md_content_padding_bottom"
-                android:textSize="?attr/md_content_textsize"
+                android:textSize="15sp"
                 tools:text="Content" />
 
         </ScrollView>

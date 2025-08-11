@@ -5,9 +5,9 @@
     android:layout_height="wrap_content"
     android:gravity="start|center_vertical"
     android:orientation="horizontal"
-    android:paddingStart="?attr/md_dialog_frame_margin"
+    android:paddingStart="25dp"
     android:paddingTop="@dimen/md_content_padding_top"
-    android:paddingEnd="?attr/md_dialog_frame_margin"
+    android:paddingEnd="25dp"
     android:paddingBottom="@dimen/md_content_padding_bottom">
 
     <ProgressBar
@@ -24,8 +24,8 @@
         android:gravity="start"
         android:paddingStart="16dp"
         android:textAlignment="viewStart"
-        android:textColor="?attr/md_explain_color"
-        android:textSize="?attr/md_explain_textsize"
+        android:textColor="#9FABBC"
+        android:textSize="13sp"
         tools:ignore="NewApi,RtlSymmetry,UnusedAttribute"
         tools:text="Message" />
 

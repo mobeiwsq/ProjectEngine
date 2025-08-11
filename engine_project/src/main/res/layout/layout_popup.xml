@@ -8,22 +8,22 @@
         android:id="@+id/box"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="?attr/popup_bg" />
+        android:background="@drawable/popup_bg" />
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/arrow_up"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="top|start"
-        android:layout_marginTop="?attr/popup_arrow_up_margin_top"
-        app:srcCompat="?attr/popup_arrow_up" />
+        android:layout_marginTop="0dp"
+        app:srcCompat="@drawable/popup_arrow_up" />
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/arrow_down"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|start"
-        android:layout_marginBottom="?attr/popup_arrow_down_margin_bottom"
-        app:srcCompat="?attr/popup_arrow_down" />
+        android:layout_marginBottom="0dp"
+        app:srcCompat="@drawable/popup_arrow_down" />
 
 </FrameLayout>

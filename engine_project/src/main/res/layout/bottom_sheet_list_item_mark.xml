@@ -3,7 +3,7 @@
            android:id="@+id/bottom_dialog_list_item_mark"
            android:layout_width="wrap_content"
            android:layout_height="wrap_content"
-           android:layout_marginStart="?attr/bottom_sheet_list_item_mark_margin_left"
+           android:layout_marginStart="12dp"
            android:contentDescription="Check mark icon"
            android:scaleType="centerInside"
-           android:src="?attr/icon_check_mark"/>
+           android:src="@drawable/icon_check_mark"/>
